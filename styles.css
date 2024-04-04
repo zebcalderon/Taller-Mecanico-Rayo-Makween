@@ -5,5 +5,5 @@ body {
 }
 
 .navbar {
-    background-color: #000000 !important; /* Use !important to ensure it overrides Bootstrap's styles */
+    background-color: #fada26 !important; /* Use !important to ensure it overrides Bootstrap's styles */
 }
