@@ -1,7 +1,3 @@
-nav-link active {
-    font-size: 20px;
-}
-
-.head{
-    font-family: Georgia;
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
