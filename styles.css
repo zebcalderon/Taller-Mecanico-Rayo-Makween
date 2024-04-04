@@ -3,3 +3,7 @@ body {
     background-color: rgb(241, 53, 42);
     color: rgb(254, 236, 131);
 }
+
+.navbar {
+    background-color: #fada26 !important; /* Use !important to ensure it overrides Bootstrap's styles */
+}
