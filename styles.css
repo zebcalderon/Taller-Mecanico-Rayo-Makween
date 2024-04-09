@@ -9,5 +9,12 @@ body {
 
 .container-custom {
     max-width: 1000px;
-    margin-right: 600px;
+    margin-right: 45%;
+    margin-top: 3%;
+    background-color: black;
 }
+
+
+/*.carousel-caption {
+    margin-top: 45%;
+}*/
