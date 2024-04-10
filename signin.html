@@ -74,7 +74,7 @@
       </div>
     </nav>
 
-    <div class="container w-75 bg-danger rounded shadow" style="margin-top: 16vh;">
+    <div class="container w-75 bg-danger rounded shadow needs-validation" novalidate style="margin-top: 16vh;">
       <div class="row">
         <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6  rounded-start">
 
@@ -88,9 +88,11 @@
 
           <form action="#">
             <div class="mb-4">
-              <label for="email" class="form-label">Correo Electrónico</label>
-              <input type="email" class="form-control" name="email">
-              
+              <label for="validationCustom01" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" name="email" id="validationCustom01" required>
+              <div class="invalid-feedback">
+                Please choose a username.
+              </div>
             </div>
             <div class="mb-4">
               <label for="password" class="form-label">Contraseña</label>
