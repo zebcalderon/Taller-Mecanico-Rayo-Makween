@@ -99,3 +99,7 @@ input{
 #message::placeholder{
     color:rgb(190, 190, 190);
 }
+
+.d-flex {
+    margin-right: 40%;
+}
