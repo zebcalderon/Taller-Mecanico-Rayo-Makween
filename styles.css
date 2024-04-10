@@ -18,6 +18,10 @@ body {
     background-color: #fada26;
 }
 
+.active {
+    color: #2b2a2a;
+}
+
 .navbar-custom .navbar-nav .nav-link {
     color: #ffffff; /* Change the color to your desired color code */
   }
