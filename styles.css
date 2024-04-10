@@ -48,14 +48,15 @@ h3 {
 }
 
 .form-register {
-    width: 400px;
+    width: 500px;
     padding: 30px;
     background: rgb(143, 41, 41);
     margin: auto;
-    margin-top: 100px;
+    margin-top: 50px;
     border-radius: 4px;
     font-family: 'calibri';
     color: white;
+    box-shadow: 7px 13px 37px #2b2a2a;
 }
 
 .form-register h4{
@@ -72,4 +73,5 @@ h3 {
     border: 1px solid #fada26;
     font-family: 'calibri';
     font-size: 18px;
+    
 }
