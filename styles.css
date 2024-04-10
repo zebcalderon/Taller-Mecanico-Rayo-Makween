@@ -111,3 +111,7 @@ input{
 #message::placeholder{
     color:rgb(190, 190, 190);
 }
+
+textarea{
+    color: white;
+}
