@@ -40,3 +40,58 @@ h3 {
 .navbar-search .form-control {
     margin-right: 5px;
   }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form-register {
+    width: 500px;
+    padding: 30px;
+    background: rgb(143, 41, 41);
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px #2b2a2a;
+}
+
+.form-register h4{
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.controls {
+    width: 100%;
+    background: rgb(143, 41, 41);
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #fada26;
+    font-family: 'calibri';
+    font-size: 18px;
+    
+}
+
+input{
+    color: white;
+}
+
+#nombres::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#telefono::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#correo::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#message::placeholder{
+    color:rgb(190, 190, 190);
+}
