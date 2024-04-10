@@ -75,3 +75,19 @@ h3 {
     font-size: 18px;
     
 }
+
+#nombres::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#telefono::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#correo::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#message::placeholder{
+    color:rgb(190, 190, 190);
+}
