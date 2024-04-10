@@ -76,6 +76,10 @@ h3 {
     
 }
 
+input{
+    color: white;
+}
+
 #nombres::placeholder{
     color:rgb(190, 190, 190);
 }
