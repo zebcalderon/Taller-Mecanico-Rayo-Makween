@@ -63,6 +63,8 @@ h3 {
     box-shadow: 7px 13px 37px #2b2a2a;
 }
 
+
+
 .form-register h4{
     font-size: 22px;
     margin-bottom: 20px;
@@ -98,8 +100,4 @@ input{
 
 #message::placeholder{
     color:rgb(190, 190, 190);
-}
-
-.d-flex {
-    margin-right: 40%;
 }
