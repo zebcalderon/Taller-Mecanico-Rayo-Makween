@@ -8,6 +8,16 @@ body {
 }
 
 .container-custom {
+    max-width: 850px;
+    margin-right: 45%;
+    margin-left: 5%;
+    margin-top: 3%;
+    height: 700px;
+    background-color: wheat;
+    border-radius: 25px;
+}
+
+/* .container-custom {
     height: 5%;
     max-width: 850px;
     max-height: 500px;
@@ -16,7 +26,7 @@ body {
     margin-top: 3%;
     position: absolute;
     background-color: #fada26;
-}
+} */
 
 .active {
     color: #2b2a2a;
@@ -36,10 +46,6 @@ h3 {
     margin-top: 1%;
 }
 
-.carousel-caption {
-    left: 61% !important;
-    color: black;
-}
 
 .navbar-search {
     margin-right: auto;
