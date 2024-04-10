@@ -4,7 +4,7 @@ body {
 }
 
 .navbar {
-    background-color: #fada26 !important; /* Use !important to ensure it overrides Bootstrap's styles */
+    background-color: rgb(143, 41, 41) !important; /* Use !important to ensure it overrides Bootstrap's styles */
 }
 
 .container-custom {
@@ -17,6 +17,10 @@ body {
     position: absolute;
     background-color: #fada26;
 }
+
+.navbar-custom .navbar-nav .nav-link {
+    color: #ffffff; /* Change the color to your desired color code */
+  }
 
 .carousel-item img {
     width: 100%;
