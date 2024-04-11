@@ -10,6 +10,7 @@ body {
 
 .container-custom {
     max-width: 850px;
+    min-width: 650px;
     margin-right: 45%;
     margin-left: 5%;
     height: 700px;
