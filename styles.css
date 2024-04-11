@@ -1,6 +1,12 @@
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     background: linear-gradient(to right, #ffa751, #ffe259);
+    background-repeat: no-repeat;
+}
+
+footer {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background: linear-gradient(to right, #ffa751, #ffe259);
 }
 
 .navbar {
@@ -9,10 +15,8 @@ body {
 
 
 .container-custom {
-    max-width: 850px;
+    max-width: 750px;
     min-width: 650px;
-    margin-right: 45%;
-    margin-left: 5%;
     height: 700px;
     background-color: wheat;
     border-radius: 15px;
