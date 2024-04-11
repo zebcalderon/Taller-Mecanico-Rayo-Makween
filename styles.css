@@ -119,3 +119,13 @@ textarea{
 .span {
     color: white;
 }
+
+.form-controls{
+    width: 100%;
+    background: transparent;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #fada26;
+    font-family: 'calibri';
+    font-size: 18px;
+}
