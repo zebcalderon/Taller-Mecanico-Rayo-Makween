@@ -7,6 +7,7 @@ body {
     background-color: rgb(143, 41, 41) !important; /* Use !important to ensure it overrides Bootstrap's styles */
 }
 
+
 .container-custom {
     max-width: 850px;
     margin-right: 45%;
