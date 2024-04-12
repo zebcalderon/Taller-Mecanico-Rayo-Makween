@@ -1,7 +1,5 @@
 <!doctype html>
 <html lang="es">
-  
-  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Makween</title>
@@ -34,8 +32,6 @@
 
     </style>
   </head>
-
-  <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
@@ -89,7 +85,8 @@
     
       <div class="container bg-danger" style="color: #ffffff; padding: 50px;">
         <h1>Trabajo 1</h1>
-        <p>El cliente solicito el cambio de los neumaticos y llantas en primera instancia, luego cambio de material de los asientos y por ultimo incorporar turbocargador</p>
+        <!--Aquí esta el popover-->
+        <p>El cliente solicito el cambio de los neumaticos y llantas en primera instancia, luego cambio de material de los asientos y por ultimo incorporar <span data-bs-toggle="popover" data-bs-title="Definicion" data-bs-content=" es un sistema de sobrealimentación que usa una turbina centrífuga para accionar mediante un eje coaxial con ella, una rueda compresora para comprimir gases.">turbocargador</span></p>
       <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item" style="background-color: #c4aa18fd;">
           <h2 class="accordion-header">
@@ -165,3 +162,7 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+      <script>
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+      </script>
