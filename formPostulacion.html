@@ -82,7 +82,7 @@
                         <div>
                           <label for="rut" class="form-label"></label>
                           <h3>RUT</h3>
-                          <input type="number" class="form-controls" id="rut" placeholder="Ingrese su rut" required> 
+                          <input type="text" class="form-controls" id="rut" placeholder="ej: 20444111k" minlength="9" maxlength="10" required/> 
                           <div class="invalid-feedback">
                           </div>
                       </div>
@@ -135,7 +135,7 @@
                         <div>
                           <label for="edad" class="form-label"></label>
                           <h3>Edad</h3>
-                          <input type="number" class="form-controls" id="edad" placeholder="Ingrese su edad" maxlength="2" required>
+                          <input type="number" class="form-controls" id="edad" placeholder="Ingrese su edad" min="18" max="35" required>
                           <div class="invalid-feedback"></div>
                         </div>
                       </div>
@@ -157,6 +157,17 @@
                       </div>
                     </div>
                     <div class="row">
+                      <!-- CORREO ELECTRÓNICO -->
+                      <div class="col">
+                        <div>
+                          <label for="correo" class="form-label"></label>
+                          <h3>Correo Electrónico</h3>
+                          <input type="email" class="form-controls" id="correo" placeholder="Ingrese su Correo" required>
+                          <div class="invalid-feedback">
+                          </div>
+                        </div>
+                      </div>
+                      <!--CELULAR-->
                       <div class="col">
                         <div>
                           <label for="celular" class="form-label"></label>
@@ -166,14 +177,25 @@
                           </div>
                         </div>
                       </div>
-                      <div class="col-8"></div>
+                      <div class="col-4"></div>
                     </div>
-                    <!--CELULAR-->
-                    
-                    <!-- DESCRIPCION -->
+                    <div class="row">
+                      <div class="col">
+                        <div>
+                          <label for="profesion" class="form-label"></label>
+                          <h3>Profesión</h3>
+                          <input type="text" class="form-controls" id="profesion" placeholder="Ingrese su Profesión" required>
+                          <div class="invalid-feedback">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-6"></div>
+                    </div>
+                    <!-- MOTIVACIÓN PARA POSTULAR -->
                     <div>
-                        <label for="message" class="form-label"></label>
-                        <textarea class="form-controls" id="message" rows="5" placeholder="Descripción" required minlength="1"></textarea>
+                        <label for="motivo" class="form-label"></label>
+                        <h3>Motivo para postular al trabajo</h3>
+                        <textarea class="form-controls" id="motivo" rows="5" placeholder="Ingrese el motivo de por qué quiere postular al trabajo." required minlength="2"></textarea>
                         <div class="invalid-feedback">
                         </div>
                     </div>
