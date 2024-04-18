@@ -77,14 +77,19 @@
                 <!--Aquí comienzan los formularios con sus respectivas validaciones-->
                 <form>
                     <!--RUT-->
-                    <div>
-                        
-                        <label for="rut" class="form-label"></label>
-                        <h3>RUT</h3>
-                        <input type="number" class="form-controls" id="rut" placeholder="Ingrese su rut" required> 
-                        <div class="invalid-feedback">
-                        </div>
+                    <div class="row">
+                      <div class="col">
+                        <div>
+                          <label for="rut" class="form-label"></label>
+                          <h3>RUT</h3>
+                          <input type="number" class="form-controls" id="rut" placeholder="Ingrese su rut" required> 
+                          <div class="invalid-feedback">
+                          </div>
+                      </div>
+                      </div>
+                      <div class="col-8"></div>
                     </div>
+                    
                     <!-- NOMBRE Y APELLIDOS -->
                     <div class="row">
                         <div class="col">
@@ -115,29 +120,53 @@
                         </div>
                         </div>
                     </div>
-                    <!--EDAD-->
-                    <div>
-                      <label for="edad" class="form-label"></label>
-                      <input type="number" class="form-controls" id="edad" placeholder="Ingrese su edad" maxlength="2" required>
-                      <div class="invalid-feedback">
+                    <div class="row">
+                      <div class="col">
+                        <!-- FECHA DE NACIMIENTO -->
                       </div>
                     </div>
-                    <!--GÉNERO-->
-                    <div>
-                        <select class="form-select mt-4" aria-label="Default select example" style="width: 100%; background-color: #fada26;border-radius: 4px;border: 1px solid #fada26;" required>
-                            <option selected>Elegir su género</option>
+                    <div class="row">
+                      <!--EDAD-->
+                      <div class="col">
+                        <div>
+                          <label for="edad" class="form-label"></label>
+                          <h3>Edad</h3>
+                          <input type="number" class="form-controls" id="edad" placeholder="Ingrese su edad" maxlength="2" required>
+                          <div class="invalid-feedback">
+                          </div>
+                        </div>
+                      </div>
+                      <!--GÉNERO-->
+                      <div class="col">
+                        <div>
+                          <br>
+                          <br>
+                          <select class="form-select mt-4" aria-label="Default select example" style="width: 100%; background-color: #fada26;border-radius: 4px;border: 1px solid #fada26;" required>
+                            <option selected value="">Elegir su género</option>
                             <option value="1">Masculimo</option>
                             <option value="2">Femenino</option>
                             <option value="3">Otro</option>
-                        </select>
-                    </div>
-                    <!--CELULAR-->
-                    <div>
-                      <label for="celular" class="form-label"></label>
-                      <input type="text" class="form-controls" id="celular" placeholder="Ingrese su celular" required>
-                      <div class="invalid-feedback">
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col">
+                        
                       </div>
                     </div>
+                    <div class="row">
+                      <div class="col">
+                        <div>
+                          <label for="celular" class="form-label"></label>
+                          <h3>Celular</h3>
+                          <input type="text" class="form-controls" id="celular" placeholder="Ingrese su celular" required>
+                          <div class="invalid-feedback">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-8"></div>
+                    </div>
+                    <!--CELULAR-->
+                    
                     <!-- DESCRIPCION -->
                     <div>
                         <label for="message" class="form-label"></label>
