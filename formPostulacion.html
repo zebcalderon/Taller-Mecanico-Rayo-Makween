@@ -80,31 +80,39 @@
                     <div>
                         
                         <label for="rut" class="form-label"></label>
-                        <h2>RUT</h2>
+                        <h3>RUT</h3>
                         <input type="number" class="form-controls" id="rut" placeholder="Ingrese su rut" required> 
                         <div class="invalid-feedback">
                         </div>
                     </div>
-                    <!--NOMBRE-->
-                    <div>
-                      <label for="nombre" class="form-label"></label>
-                      <h2>Nombre</h2>
-                      <input type="text" class="form-controls" id="nombre" placeholder="Ingrese su nombre" required>
-                      <div class="invalid-feedback">
-                      </div>
-                    </div>
-                    <!--APELLIDO PATERNO-->
-                    <div>
-                        <label for="appaterno" class="form-label"></label>
-                        <input type="text" class="form-controls" id="appaterno" placeholder="Ingrese su apellido paterno" required>
-                        <div class="invalid-feedback">
+                    <!-- NOMBRE Y APELLIDOS -->
+                    <div class="row">
+                        <div class="col">
+                          <div>
+                            <label for="nombre" class="form-label"></label>
+                            <h3>Nombre</h3>
+                            <input type="text" class="form-controls" id="nombre" placeholder="Ingrese su nombre" required>
+                            <div class="invalid-feedback">
+                            </div>
+                          </div>
                         </div>
-                    </div>
-                    <!--APELLIDO MATERNO-->
-                    <div>
-                        <label for="apmaterno" class="form-label"></label>
-                        <input type="text" class="form-controls" id="apmaterno" placeholder="Ingrese su apellido materno" required>
-                        <div class="invalid-feedback">
+                        <div class="col">
+                          <div>
+                            <label for="appaterno" class="form-label"></label>
+                            <h3>Apellido Paterno</h3>
+                            <input type="text" class="form-controls" id="appaterno" placeholder="Ingrese su apellido paterno" required>
+                            <div class="invalid-feedback">
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col">
+                          <div>
+                            <label for="apmaterno" class="form-label"></label>
+                            <h3>Apellido Materno</h3>
+                            <input type="text" class="form-controls" id="apmaterno" placeholder="Ingrese su apellido materno" required>
+                            <div class="invalid-feedback">
+                            </div>
+                        </div>
                         </div>
                     </div>
                     <!--EDAD-->
@@ -120,7 +128,7 @@
                             <option selected>Elegir su género</option>
                             <option value="1">Masculimo</option>
                             <option value="2">Femenino</option>
-                            <option value="3">Otro...</option>
+                            <option value="3">Otro</option>
                         </select>
                     </div>
                     <!--CELULAR-->
