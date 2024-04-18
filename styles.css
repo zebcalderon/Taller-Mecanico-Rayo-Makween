@@ -114,10 +114,6 @@ input{
     color: white;
 }
 
-#rut::placeholder{
-    color:rgb(190, 190, 190);
-}
-
 #nombres::placeholder{
     color:rgb(190, 190, 190);
 }
