@@ -8,6 +8,7 @@
     rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="postulacion.css">
+    <script src="script.js"></script>
     <style>
         .container{
             display: grid;
@@ -200,8 +201,123 @@
                         </div>
                     </div>
                     <div>
-                        <input class="btn" type="submit" value="Enviar" style="background-color: #fada26; width: 100%; padding: 9px; margin-top: 25px;">
+                      <div class="row">
+                        <div class="col">
+                          <div>
+                            <input class="btn" type="submit" value="Enviar" style="background-color: #fada26; width: 100%; padding: 9px; margin-top: 25px;">
+                        </div>
+                        </div>
+                        <div class="col">
+                          
+                          <input class="btn" value="Crear Carta" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #fada26; width: 100%; padding: 9px; margin-top: 25px;">
+                          </button>
+              
+                          <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalLabel">¿Están correctos todos sus datos?</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <!-- RUT -->
+                                <div class="modal-body">
+                                  <div class="row">
+                                    <div class="col-4">
+                                      <h5>RUT:</h5>
+                                    </div>
+                                    <div class="col" style="color: grey;">
+                                      <h5>20202020-K</h5>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- NOMBRE COMPLETO -->
+                                <div class="modal-body">
+                                  <div class="row">
+                                    <div class="col-4">
+                                      <h5>Nombre Completo:</h5>
+                                    </div>
+                                    <div class="col" style="color: grey;">
+                                      <h5>Robison López Contreras</h5>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- FECHA DE NACIMIENTO -->
+                                <div class="modal-body">
+                                  <div class="row">
+                                    <div class="col-4">
+                                      <h5>Fecha de Nacimiento:</h5>
+                                    </div>
+                                    <div class="col" style="color: grey;">
+                                      <h5>01/01/2001</h5>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- EDAD -->
+                                <div class="modal-body">
+                                  <div class="row">
+                                    <div class="col-4">
+                                      <h5>Edad:</h5>
+                                    </div>
+                                    <div class="col" style="color: grey;">
+                                      <h5>25 años</h5>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- GÉNERO -->
+                                <div class="modal-body">
+                                  <div class="row">
+                                    <div class="col-4">
+                                      <h5>Género:</h5>
+                                    </div>
+                                    <div class="col" style="color: grey;">
+                                      <h5>Hombre</h5>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- CORREO ELECTRÓNICO -->
+                                <div class="modal-body">
+                                  <div class="row">
+                                    <div class="col-4">
+                                      <h5>Correo:</h5>
+                                    </div>
+                                    <div class="col" style="color: grey;">
+                                      <h5>Makween@duocuc.cl</h5>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- CELULAR -->
+                                <div class="modal-body">
+                                  <div class="row">
+                                    <div class="col-4">
+                                      <h5>Celular:</h5>
+                                    </div>
+                                    <div class="col" style="color: grey;">
+                                      <h5>+56955667788</h5>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- PROFESIÓN -->
+                                <div class="modal-body">
+                                  <div class="row">
+                                    <div class="col-4">
+                                      <h5>Profesión:</h5>
+                                    </div>
+                                    <div class="col" style="color: grey;">
+                                      <h5>Programador</h5>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- BOTÓN DE SALIDA -->
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                    
                 </form>
             </div>
         </div>
