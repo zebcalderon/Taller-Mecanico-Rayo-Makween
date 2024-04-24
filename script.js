@@ -9,8 +9,6 @@ var message = document.getElementById('message');
 var error = document.getElementById('error');
 error.style.color = 'blue';
 
-
-
 var from = document.getElementById('formulario');
     from.addEventListener('submit', function(evt){
         evt.preventDefault();

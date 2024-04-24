@@ -8,7 +8,8 @@
     rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="postulacion.css">
-    <script src="script.js"></script>
+    <script src="script.js"></script>|
+    <script src="scripts.js"></script>
     <style>
         .container{
             display: grid;
@@ -125,7 +126,7 @@
                         <!-- FECHA DE NACIMIENTO -->
                           <label for="nacimiento" class="form-label"></label>
                           <h3>Fecha de nacimiento</h3>
-                          <input type="date" class="form-controls" id="nacimiento required">
+                          <input type="date" class="form-controls" id="nacimiento" required>
                           <div class="invalid-feedback"></div>
                       </div>
                       <div class="col-8"></div>
@@ -145,7 +146,7 @@
                         <div>
                           <br>
                           <br>
-                          <select class="form-select mt-4" aria-label="Default select example" style="width: 100%; background-color: #fada26;border-radius: 4px;border: 1px solid #fada26;" required>
+                          <select class="form-select mt-4" aria-label="Default select example" style="width: 100%; background-color: #fada26;border-radius: 4px;border: 1px solid #fada26;" id="genero" required>
                             <option selected value="">Elegir su género</option>
                             <option value="1">Masculimo</option>
                             <option value="2">Femenino</option>
@@ -180,6 +181,7 @@
                       </div>
                       <div class="col-4"></div>
                     </div>
+                    <!-- PROFESIÓN -->
                     <div class="row">
                       <div class="col">
                         <div>
@@ -200,6 +202,7 @@
                         <div class="invalid-feedback">
                         </div>
                     </div>
+                    <!-- ENVIAR -->
                     <div>
                       <div class="row">
                         <div class="col">
@@ -207,9 +210,10 @@
                             <input class="btn" type="submit" value="Enviar" style="background-color: #fada26; width: 100%; padding: 9px; margin-top: 25px;">
                         </div>
                         </div>
+                        <!-- CARTA -->
                         <div class="col">
                           
-                          <input class="btn" value="Crear Carta" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #fada26; width: 100%; padding: 9px; margin-top: 25px;">
+                          <input class="btn" value="Crear Carta" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #fada26; width: 100%; padding: 9px; margin-top: 25px;" onclick="carta()">
                           </button>
               
                           <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -226,7 +230,7 @@
                                       <h5>RUT:</h5>
                                     </div>
                                     <div class="col" style="color: grey;">
-                                      <h5>20202020-K</h5>
+                                      <input type="text" id="rrut">
                                     </div>
                                   </div>
                                 </div>
