@@ -8,7 +8,6 @@
     rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="postulacion.css">
-    <script src="script.js"></script>|
     <style>
         .container{
             display: grid;
@@ -207,12 +206,12 @@
                         <div class="col">
                           <div>
                             <input class="btn" type="submit" value="Enviar" style="background-color: #fada26; width: 100%; padding: 9px; margin-top: 25px;">
-                        </div>
+                          </div>
                         </div>
                         <!-- CARTA -->
                         <div class="col">
                           
-                          <input class="btn" value="Crear Carta" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #fada26; width: 100%; padding: 9px; margin-top: 25px;" onclick="carta()">
+                          <input id="enviarcarta" class="btn" value="Crear Carta" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #fada26; width: 100%; padding: 9px; margin-top: 25px;" onclick="carta()">
                           </button>
               
                           <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -229,8 +228,9 @@
                                       <h5>RUT:</h5>
                                     </div>
                                     <div class="col" style="color: grey;">
-                                      <input type="text" id="rrut">
+                                      <h5 value="rrut"></h5>
                                     </div>
+                                    
                                   </div>
                                 </div>
                                 <!-- NOMBRE COMPLETO -->
@@ -325,7 +325,7 @@
             </div>
         </div>
     </div>
-
+    <input type="text" id="rutrut">
     <div class="container-fluid bg-danger" style="margin-top: 300px;">
       <footer class="py-5">
           <div class="row">
@@ -352,5 +352,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="scripts_seba.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 </body>
 </html>
