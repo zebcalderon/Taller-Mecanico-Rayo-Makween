@@ -9,6 +9,7 @@ function sumar(){
     document.getElementById("resultado").value=suma;
 }
 
+// FUNCIÓN PARA TOMAR INFORMACIÓN DE INPUTS
 function carta() {
 
     var vrut=String(document.getElementById("rut").value);
