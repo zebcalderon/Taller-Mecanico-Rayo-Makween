@@ -1,19 +1,17 @@
 $(document).ready(function(){
 
-    $("#cardw").mouseenter(function(){
-        $("#cardw").animate({
-            opacity: '0.5',
-            height: '800px',
-            width: '500px'
+    $("#1").mouseenter(function(){
+        $("#1").animate({  
+            opacity: '1',
+            height: '50px'
           });
     });
-    $("#cardw").mouseleave(function(){
-        $("#cardw").animate({
-            opacity: '1',
-            height: '200px',
-            width: '440px',
 
-            
+    $("#1").mouseleave(function(){
+        $("#1").animate({     
+            opacity: '0.76',
+            height: '40px',
+            position: 'fixed'
           });
     });
 
