@@ -144,11 +144,11 @@
                         <div>
                           <br>
                           <br>
-                          <select class="form-select mt-4" aria-label="Default select example" style="width: 100%; background-color: #fada26;border-radius: 4px;border: 1px solid #fada26;" id="genero" required>
+                          <select class="form-select mt-4" id="genero" aria-label="Default select example" style="width: 100%; background-color: #fada26;border-radius: 4px;border: 1px solid #fada26;" id="genero" required>
                             <option selected value="">Elegir su género</option>
-                            <option value="1">Masculimo</option>
-                            <option value="2">Femenino</option>
-                            <option value="3">Otro</option>
+                            <option value="Hombre">Masculimo</option>
+                            <option value="Mujer">Femenino</option>
+                            <option value="Otro">Otro</option>
                           </select>
                         </div>
                       </div>
@@ -228,7 +228,7 @@
                                       <h5>RUT:</h5>
                                     </div>
                                     <div class="col" style="color: grey;">
-                                      <h5 value="rrut"></h5>
+                                      <h5 id="rrut"></h5>
                                     </div>
                                     
                                   </div>
@@ -240,7 +240,7 @@
                                       <h5>Nombre Completo:</h5>
                                     </div>
                                     <div class="col" style="color: grey;">
-                                      <h5>Robison López Contreras</h5>
+                                      <h5 id="rnombre"></h5>
                                     </div>
                                   </div>
                                 </div>
@@ -251,7 +251,7 @@
                                       <h5>Fecha de Nacimiento:</h5>
                                     </div>
                                     <div class="col" style="color: grey;">
-                                      <h5>01/01/2001</h5>
+                                      <h5 id="rnacimiento"></h5>
                                     </div>
                                   </div>
                                 </div>
@@ -262,7 +262,7 @@
                                       <h5>Edad:</h5>
                                     </div>
                                     <div class="col" style="color: grey;">
-                                      <h5>25 años</h5>
+                                      <h5 id="redad"></h5>
                                     </div>
                                   </div>
                                 </div>
@@ -273,7 +273,7 @@
                                       <h5>Género:</h5>
                                     </div>
                                     <div class="col" style="color: grey;">
-                                      <h5>Hombre</h5>
+                                      <h5 id="rgenero"></h5>
                                     </div>
                                   </div>
                                 </div>
@@ -284,7 +284,7 @@
                                       <h5>Correo:</h5>
                                     </div>
                                     <div class="col" style="color: grey;">
-                                      <h5>Makween@duocuc.cl</h5>
+                                      <h5 id="rcorreo"></h5>
                                     </div>
                                   </div>
                                 </div>
@@ -295,7 +295,7 @@
                                       <h5>Celular:</h5>
                                     </div>
                                     <div class="col" style="color: grey;">
-                                      <h5>+56955667788</h5>
+                                      <h5 id="rcelular"></h5>
                                     </div>
                                   </div>
                                 </div>
@@ -306,7 +306,7 @@
                                       <h5>Profesión:</h5>
                                     </div>
                                     <div class="col" style="color: grey;">
-                                      <h5>Programador</h5>
+                                      <h5 id="rprofesion"></h5>
                                     </div>
                                   </div>
                                 </div>
@@ -325,7 +325,6 @@
             </div>
         </div>
     </div>
-    <input type="text" id="rutrut">
     <div class="container-fluid bg-danger" style="margin-top: 300px;">
       <footer class="py-5">
           <div class="row">
