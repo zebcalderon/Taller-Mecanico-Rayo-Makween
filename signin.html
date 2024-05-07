@@ -92,29 +92,24 @@
 
           <h2 class="fw-bold text-center py-5">Bienvenido</h2>
           <!--Formularios-->
-          <form action="#">
+          <form class="form" id="form">
             <div class="mb-4">
-              <label for="validationCustom01" class="form-label">Correo Electrónico</label>
-              <input type="email" class="form-control" name="email" id="validationCustom01" required>
-              <div class="invalid-feedback">
-                Rellena este campo
-              </div>
+              <label for="email" id="l1" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" name="email" id="email">
             </div>
             <div class="mb-4">
-              <label for="validationCustom02" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" name="email" id="validationCustom02" required>
-              <div class="invalid-feedback">
-                Rellena este campo
-              </div>
+              <label for="pass" id="l2" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" name="email" id="pass">
             </div>
+            <p class="warnings" id="warnings"></p>
             <div class="mb-4 form-check">
               <input type="checkbox" name="connected" class="form-check-input">
               <label for="connected" class="form-check-label">Mantenerme Conectado</label>
             </div>
             <div class="d-grid gap-2 col-6 mx-auto">
-              <button class="btn btn-danger" id="1" type="submit" style="opacity: 0.76;">Iniciar Sesión</button>
+              <input type="submit" id="btnIni" value="Iniciar sesión">
             </div>
-
+            
             <div class="my-3 text-center">
               <span>¿No tienes cuenta? <a href="registro.html">Regístrate</a></span><br>
               <span><a href="#">Recuperar Contraseña</a></span>
