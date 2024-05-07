@@ -14,13 +14,17 @@ form.addEventListener("submit", e=>{
     if(!regexEmail.test(email.value)){
         warnings += 'El email no es valido<br>'
         entrar = true
+        email.style.border= 'solid 1px red';
     }else{
-        pass.style.border= 'red';
+        email.style.border= '';
     }
 
     if(pass.value.length < 5) {
         warnings += 'La contraseña no es valida'
         entrar = true
+        pass.style.border= 'solid 1px red';
+    }else{
+        pass.style.border= '';
     }
 
     if(entrar){
