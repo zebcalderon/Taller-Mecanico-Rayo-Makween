@@ -94,20 +94,20 @@
           <!--Formularios-->
           <form class="form" id="form">
             <div class="mb-4">
-              <label for="email" id="l1" class="form-label">Correo Electrónico</label>
+              <label for="email" id="l1" class="form-label">Correo Electrónico<span class="warnings" id="warnings1"></span></label>
               <input type="email" class="form-control" name="email" id="email">
             </div>
             <div class="mb-4">
-              <label for="pass" id="l2" class="form-label">Contraseña</label>
+              <label for="pass" id="l2" class="form-label">Contraseña<span class="warnings" id="warnings2"></span></label>
               <input type="password" class="form-control" name="password" id="pass">
             </div>
-            <p class="warnings" id="warnings"></p>
             <div class="mb-4 form-check">
               <input type="checkbox" name="connected" class="form-check-input">
               <label for="connected" class="form-check-label">Mantenerme Conectado</label>
             </div>
             <div class="d-grid gap-2 col-6 mx-auto">
-              <input type="submit" id="btnIni" value="Iniciar sesión">
+              <p id="warnings3" style="text-align: center; color: red;font-size: 15px; font-family: Arial, Helvetica, sans-serif;"></p>
+              <input type="submit" id="btnIni" onclick="valida()" value="Iniciar Sesión">
             </div>
             
             <div class="my-3 text-center">
@@ -146,6 +146,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-  <script src="scriptgaston.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
