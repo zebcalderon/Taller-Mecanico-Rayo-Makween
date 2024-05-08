@@ -42,12 +42,12 @@ function carta() {
 // Funcion creada por Gastón para validar el inicio de sesión
 function valida(){
 
-    const email = document.getElementById("email")
-    const pass = document.getElementById("pass")
-    const form = document.getElementById("form")
-    const parrafo1 = document.getElementById("warnings1")
-    const parrafo2 = document.getElementById("warnings2")
-    const parrafo3 = document.getElementById("warnings3")
+    let email = document.getElementById("email")
+    let pass = document.getElementById("pass")
+    let form = document.getElementById("form")
+    let parrafo1 = document.getElementById("warnings1")
+    let parrafo2 = document.getElementById("warnings2")
+    let parrafo3 = document.getElementById("warnings3")
 
 
     form.addEventListener("submit", e=>{
@@ -85,3 +85,44 @@ function valida(){
     })
 }
 
+function validaContacto(){
+    
+    let nombresC = document.getElementById("nombreContacto");
+    let telefonoC = document.getElementById("telefonoContacto");
+    let correoC = document.getElementById("correoContacto");
+    let messageC = document.getElementById("messageContacto");
+    let formC = document.getElementById("formContacto");
+    let parrafo = document.getElementById("warningContacto");
+
+    formC.addEventListener("submit", e=>{
+        e.preventDefault();
+        let warningC = "";
+        let entrar = false;
+        let regexEmail = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,4})+$/
+        parrafo.innerHTML = "";
+
+        if(nombresC.value.length < 5) {
+            warningC += "El nombre ingresado es muy corto<br>";
+            entrar = true;
+        }
+        if(telefonoC.value.length < 7) {
+            warningC += "El teléfono ingresado es muy corto<br>";
+            entrar = true;
+        }
+        if(!regexEmail.test(correoC.value)) {
+            warningC += "El correo ingresado es incorrecto<br>";
+            entrar = true;
+        }
+        if(messageC.value.length <5) {
+            warningC += "El mensaje ingresado es muy corto<br>";
+            entrar = true;
+        }
+
+        if(entrar){
+            parrafo.innerHTML = warningC;
+        }else{
+            parrafo.innerHTML = "Enviado";
+        }
+    })
+
+} 

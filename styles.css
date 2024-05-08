@@ -122,6 +122,22 @@ input{
     color:rgb(190, 190, 190);
 }
 
+#nombreContacto::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#telefonoContacto::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#correoContacto::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#messageContacto::placeholder{
+    color:rgb(190, 190, 190);
+}
+
 #telefono::placeholder{
     color:rgb(190, 190, 190);
 }
