@@ -61,7 +61,7 @@ function valida(){
         parrafo3.innerHTML = ""
 
         if(!regexEmail.test(email.value)){
-            warningsA += 'El email no es válido<br>'
+            warningsA = 'El email no es válido'
             entrar = true
             email.style.border= 'solid 1px red';
         }else{
