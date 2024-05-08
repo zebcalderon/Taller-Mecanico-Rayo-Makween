@@ -163,10 +163,10 @@ textarea{
 .warnings{
     width: 220px;
     text-align: left;
-    margin: auto;
-    margin-bottom: 20px;
     color: red;
-    font-weight: bold;
+    margin-left: 20px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #btnIni{
