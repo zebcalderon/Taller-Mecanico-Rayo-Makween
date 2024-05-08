@@ -191,3 +191,8 @@ textarea{
     border-radius: 10px;
     padding: 6px;
 }
+
+#map{
+    height: 500px;
+    width: 970px;
+}
