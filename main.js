@@ -116,6 +116,49 @@ function validaContacto(){
 
 } 
 
+function validaRegistro(){
+    
+    let nombresC = document.getElementById("nombreContacto");
+    let telefonoC = document.getElementById("telefonoContacto");
+    let correoC = document.getElementById("correoContacto");
+    let messageC = document.getElementById("messageContacto");
+    let formC = document.getElementById("formContacto");
+    let parrafo = document.getElementById("warningContacto");
+
+    formC.addEventListener("submit", e=>{
+        e.preventDefault();
+        let warningC = "";
+        let entrar = false;
+        let regexEmail = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,4})+$/
+        parrafo.innerHTML = "";
+
+        if(nombresC.value.length < 5) {
+            warningC += "El nombre ingresado es muy corto<br>";
+            entrar = true;
+        }
+        if(telefonoC.value.length < 7) {
+            warningC += "El teléfono ingresado es muy corto<br>";
+            entrar = true;
+        }
+        if(!regexEmail.test(correoC.value)) {
+            warningC += "El correo ingresado es incorrecto<br>";
+            entrar = true;
+        }
+        if(messageC.value.length <5) {
+            warningC += "El mensaje ingresado es muy corto<br>";
+            entrar = true;
+        }
+
+        if(entrar){
+            parrafo.innerHTML = warningC;
+        }else{
+            parrafo.innerHTML = "Enviado";
+        }
+    })
+
+} 
+
+
 window.onscroll = function(){
     if(document.documentElement.scrollTop > 200){
         document.querySelector('.go-top-container')
