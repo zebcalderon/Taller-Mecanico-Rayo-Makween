@@ -116,6 +116,59 @@ function validaContacto(){
 
 } 
 
+function validaRegistro(){
+    
+    let nombre = document.getElementById("p_nombre");
+    let apellido = document.getElementById("ap_paterno");
+    let telefonoB = document.getElementById("telefonoContacto");
+    let correoB = document.getElementById("correoContacto");
+    let pass1 = document.getElementById("password_1");
+    let pass2 = document.getElementById("password_2");
+    let formB = document.getElementById("formRegistro");
+    let parrafo = document.getElementById("warningContacto");
+
+    formB.addEventListener("submit", e=>{
+        e.preventDefault();
+        let warningB = "";
+        let entrar = false;
+        let regexEmail = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,4})+$/
+        parrafo.innerHTML = "";
+
+        if(nombre.value.length < 3) {
+            warningB += "El nombre ingresado es muy corto<br>";
+            entrar = true;
+        }
+        if(apellido.value.length < 4) {
+            warningB += "El nombre ingresado es muy corto<br>";
+            entrar = true;
+        }
+        if(telefonoB.value.length < 7) {
+            warningB += "El teléfono ingresado es muy corto<br>";
+            entrar = true;
+        }
+        if(!regexEmail.test(correoB.value)) {
+            warningB += "El correo ingresado es incorrecto<br>";
+            entrar = true;
+        }
+        if(pass1.value.length < 3) {
+            warningB += "La contraseña ingresada es muy corta<br>";
+            entrar = true;
+        }
+        if(pass1.value!=pass2.value) {
+            warningB += "Las contraseñas no coinciden<br>";
+            entrar = true;
+        }
+
+        if(entrar){
+            parrafo.innerHTML = warningB;
+        }else{
+            parrafo.innerHTML = "Enviado";
+        }
+    })
+
+} 
+
+
 window.onscroll = function(){
     if(document.documentElement.scrollTop > 200){
         document.querySelector('.go-top-container')

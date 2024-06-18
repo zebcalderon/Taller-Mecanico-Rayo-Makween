@@ -146,6 +146,22 @@ input{
     color:rgb(190, 190, 190);
 }
 
+#p_nombre::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#ap_paterno::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#password_1::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#password_2::placeholder{
+    color:rgb(190, 190, 190);
+}
+
 #message::placeholder{
     color:rgb(190, 190, 190);
 }
