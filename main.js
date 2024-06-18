@@ -154,7 +154,7 @@ function validaRegistro(){
             warningB += "La contraseña ingresada es muy corta<br>";
             entrar = true;
         }
-        if(pass1===pass2) {
+        if(pass1.value!=pass2.value) {
             warningB += "Las contraseñas no coinciden<br>";
             entrar = true;
         }
