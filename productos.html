@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
     rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="carrito.css">
     <style>
     .navbar .form-control {
       font-size: 20px;
@@ -64,88 +65,154 @@
             </li>
           </ul>
           <form class="d-flex" style="margin-right: 30%;" role="search">
-            <input class="form-control me-2 .navbar-search" style="width: auto;" type="search" placeholder="Buscar en Makween.cl" aria-label="Search">
+            <input class="form-control me-2 .navbar-search" style="width: auto;" type="search" placeholder="Buscar en Makween.cl" aria-label="Search" id="busqueda">
             <button class="btn btn-outline-warning" type="submit" style="font-size: 20px; color: #ffffff;" >Buscar</button>
           </form>
           <nav class="nav-item">
             <a class="btn btn-outline-warning" href="signin.html" style="font-size: 18px; color: #ffffff; width: max-content;">Iniciar Sesión</a>
           </nav>
+          <button class="img-button position-carrito">
+            <img src="imagenes/compra-white.png" alt="" class="img-carrito">
+          </button>
+          <!-- Aquí va el Carrito de Compras -->
+          <div class="container caja-carrito">
+            <!-- fila de info base del carrito -->
+            <div class="row" style="margin-top: 20px;">
+              <!-- Columna de Item -->
+              <div class="col-4 ms-5">
+                <p class="info-items-caja-carrito borde">ITEM</p>
+              </div>
+              <!-- Columna de Precio -->
+              <div class="col-3">
+                <p class="info-items-caja-carrito borde">PRECIO</p>
+              </div>
+              <!-- Columna de Cantidad -->
+              <div class="col">
+                <p class="info-items-caja-carrito borde">CANTIDAD</p>
+              </div>
+            </div>
+            <!-- fin de fila de info -->
+
+             <!-- Inicio de fila de items -->
+            <div class="filas-carrito">
+              <div class="row fila-items-carro borde">
+                <!-- Columna de Item -->
+                
+                <div class="col-1">
+                  <img class="item-carrito foto" src="imagenes/productos/producto_01.png" alt="">
+                </div>
+                <div class="col-4 ms-2">
+                  <p class="items-caja-carrito">Aceite de Motor Castrol Edge Sintetico 5W30 1L</p>
+                </div>
+                <!-- Columna de Precio -->
+                <div class="col-2">
+                  <p class="items-caja-carrito precio">$14.000</p>
+                </div>
+                <!-- Columna de Cantidad -->
+                <div class="col-2 ms-5">
+                  <input type="number" class="form-controls black cantidad" value="2">
+                </div>
+                <div class="col col-boton-quitar">
+                  <button type="button" class="btn btn-danger btn-quitar">Quitar</button>
+                </div>
+              </div>
+            </div>
+            <!-- Fin de Fila de Items -->
+            
+            <!-- FILA DE TOTAL -->
+            <div class="row fila-total-carro">
+              <div class="col-7">
+
+              </div>
+              <div class="col">
+                <b></b><H4>Total</H4></b>
+              </div>
+              <div class="col">
+                <span class="monto-total" style="color: grey;">$9.990</span>
+              </div>
+            </div>
+            <!-- FIN DE FILA DE TOTAL -->
+          </div>
         </div>
       </div>
     </nav>
+    
+    
 
-    <!--aquí empieza el apartado para los trabajos-->
+    <!-- Aquí están los productos -->
     <div class="container-fluid" style="margin-top: 80px;">
       <!--fila para el título-->
       <div class="row" >
         <div class="col text-center mt-5">
-          <h1 style="color: rgb(143, 41, 41)"><b>Trabajos Makween</b></h1>
+          <h1 style="color: rgb(143, 41, 41)"><b>Productos Makween</b></h1>
         </div>
       </div>
+
       <!--Menu de productos (Estético)-->
       <div class="row">
-        <div class="col-2">
-          <p>pepe</p>
-        </div>
         <!--Lista de Productos-->
-        <div class="col-9">
-
+        <div class="col">
           <div class="row">
+            <div class="col"></div>
             <div class="col" id="card">
-              <div class="card text-bg-danger" style="height: 550px">
-                <img src="imagenes/productos/producto_01.png" class="card-img-top" alt="..." style="max-height: 75%;">
+              <div class="card text-bg-danger" style="height: 550px; width: 300px;">
+                <img src="imagenes/productos/producto_01.png" class="card-img-top" alt="..." style="max-height: 65%;">
                 <div class="card-body">
                   <!-- Aceite de Auto, precio: $14.000 -->
                   <h5 class="card-title">CASTROL</h5>
                   <p>Aceite de Motor Castrol Edge Sintetico 5W30 1L</p>
                   <p class="card-text">$ 14,000</p>
-                  <a href="trabajo1.html" class="btn btn-primary">Comprar</a>
+                  <a href="trabajo1.html" class="btn btn-success">Agregar al Carro</a>
                 </div>
               </div>
             </div>
+
             <!--Columna responsive para las cards-->
             <div class="col" id="card">
-              <div class="card text-bg-danger" style="height: 550px">
+              <div class="card text-bg-danger" style="height: 550px; width: 300px;">
                 <img src="imagenes/productos/producto_02.png" class="card-img-top" alt="..." style="max-height: 65%;">
                 <div class="card-body">
+                  
                   <!-- Aceite de Auto, precio: $14.000 -->
                   <h5 class="card-title">CASTROL</h5>
                   <p>Aceite de Motor Castrol Edge Sintetico 5W30 1L</p>
                   <p class="card-text">$ 14,000</p>
-                  <a href="trabajo1.html" class="btn btn-primary">Comprar</a>
+                  <a href="trabajo1.html" class="btn btn-success">Agregar al Carro</a>
                 </div>
               </div>
             </div>
+
             <!--Columna responsive para las cards-->
             <div class="col" id="card">
-              <div class="card text-bg-danger" style="height: 550px">
+              <div class="card text-bg-danger" style="height: 550px; width: 300px;">
                 <img src="imagenes/productos/producto_02.png" class="card-img-top" alt="..." style="max-height: 65%;">
                 <div class="card-body">
+
                   <!-- Aceite de Auto, precio: $14.000 -->
                   <h5 class="card-title">CASTROL</h5>
                   <p>Aceite de Motor Castrol Edge Sintetico 5W30 1L</p>
                   <p class="card-text">$ 14,000</p>
-                  <a href="trabajo1.html" class="btn btn-primary">Comprar</a>
+                  <a href="trabajo1.html" class="btn btn-success">Agregar al Carro</a>
                 </div>
               </div>
             </div>
-    
+
             <div class="col" id="card">
-              <div class="card text-bg-danger" style="height: 550px">
+              <div class="card text-bg-danger" style="height: 550px; width: 300px;">
                 <img src="imagenes/productos/producto_02.png" class="card-img-top" alt="..." style="max-height: 65%;">
                 <div class="card-body">
+
                   <!-- Aceite de Auto, precio: $14.000 -->
                   <h5 class="card-title">CASTROL</h5>
                   <p>Aceite de Motor Castrol Edge Sintetico 5W30 1L</p>
                   <p class="card-text">$ 14,000</p>
-                  <a href="trabajo1.html" class="btn btn-primary">Comprar</a>
+                  <a href="trabajo1.html" class="btn btn-success">Agregar al Carro</a>
                 </div>
               </div>
             </div>
+            <div class="col"></div>
           </div>
-          
         </div>
-        
       </div>
     </div>
 
@@ -181,5 +248,5 @@
       </footer>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="scriptgaston.js"></script>
+    <script src="carrito.js"></script>
   </body>
