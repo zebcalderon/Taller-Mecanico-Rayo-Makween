@@ -5,11 +5,19 @@ if (document.readyState == 'loading') {
 }
 
 function ready() {
+    actualizarTotalCarro()
+
     var QuitarProductoCarrito = document.getElementsByClassName('btn-quitar')
     console.log(QuitarProductoCarrito)
     for (var i = 0; i < QuitarProductoCarrito.length; i++) {
         var button = QuitarProductoCarrito[i]
         button.addEventListener('click', quitarProducto)
+    }
+
+    var cantidadProductoCarrito = document.getElementsByClassName('cantidad')
+    for (var i = 0; i < cantidadProductoCarrito.length; i++){
+        var input = cantidadProductoCarrito[i]
+        input.addEventListener('change', cantidadActualizada)
     }
 }
 
@@ -19,7 +27,15 @@ function quitarProducto(event){
     actualizarTotalCarro()
 }
 
-
+function cantidadActualizada(event){
+    var input = event.target
+    if (isNaN(input.value) || input.value <= 0) {
+        input.value = 1
+        actualizarTotalCarro()
+    }
+    actualizarTotalCarro()
+}
+// Antiguo código de quitarProducto
 // var QuitarProductoCarrito = document.getElementsByClassName('btn-quitar')
 // console.log(QuitarProductoCarrito)
 // for (var i = 0; i < QuitarProductoCarrito.length; i++) {
@@ -55,8 +71,8 @@ function actualizarTotalCarro() {
         var price = parseFloat(priceElement.innerText.replace('$', ''))
         var quantity = quantityElement.value
         total = total + (price * quantity)
-        total = total.toFixed(3)
     }
+    total = total.toFixed(3)
     document.getElementsByClassName('monto-total')[0].innerText = '$' + total
 }
 
