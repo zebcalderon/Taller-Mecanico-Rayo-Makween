@@ -32,16 +32,11 @@
     right: 15px;
     width: 700px;
     border-radius: 30px;
+    max-height: auto;
 }
 
 .info-items-caja-carrito{
     font-size: 25px;
-}
-
-.items-caja-carrito{
-    font-size: 16px;
-    margin-top: 20px;
-    text-align: center;
 }
 
 .item-carrito {
@@ -69,4 +64,13 @@
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+
+.fila-items-carro {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.d-flex {
+    max-height: 50px;
 }
