@@ -1,9 +1,15 @@
 from django.shortcuts import render
+from .models import *
 
 # Create your views here.
 
 def inicio(request):
-    context={}
+    primer_trabajo = Trabajo.objects.first()  # Get the first record
+    trabajos_siguientes = Trabajo.objects.all()[1:3]
+    context = {
+        'trabajo1': primer_trabajo,
+        'trabajos2y3': trabajos_siguientes
+    }
     return render(request, 'rayoMakween/inicio.html', context)
 
 def formPostulacion(request):
@@ -41,3 +47,4 @@ def trabajos(request):
 def registro(request):
     context={}
     return render(request, 'rayoMakween/registro.html', context)
+

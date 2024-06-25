@@ -86,29 +86,43 @@
         </div>
         <div class="carousel-inner" >
           <!-- PRIMERA IMAGEN DE CARRUSEL -->
-        <div class="carousel-item active">
-            <a href="trabajo1.html"><img src="{% static 'images/auto1.jpg' %}" class="d-block w-100" alt="..."></a>
-            <div class="carousel-caption d-none d-md-block text-white">
-            <span class="bg-black" style="font-size: 40px;">&nbsp;Cambio de Aceite y cambio de ruedas&nbsp;</span><br>
-            <span class="bg-black">&nbsp;Trabajo realizado por: Fernando Alonso&nbsp;</span>
+          {% if trabajo1 %}
+          <div class="carousel-item active">
+              <a href="trabajo1.html"><img src="{{ trabajo1.imagenes.url }}" class="d-block w-100" alt="..."></a>
+              <div class="carousel-caption d-none d-md-block text-white">
+              <span class="bg-black" style="font-size: 40px;">&nbsp;{{ trabajo1.observacion }}&nbsp;</span><br>
+              <span class="bg-black">&nbsp;Trabajo realizado por: {{ trabajo1.nombreMecanico }}&nbsp;</span>
+              </div>
+          </div>
+          {% else %}
+            <div class="carousel-item active">
+              <a href="trabajo1.html"><img src="{% static 'images/auto2.jpg' %}" class="d-block w-100" alt="..."></a>
+              <div class="carousel-caption d-none d-md-block text-white">
+              <span class="bg-black" style="font-size: 40px;">&nbsp;null&nbsp;</span><br>
+              <span class="bg-black">&nbsp;Trabajo realizado por: null&nbsp;</span>
+              </div>
             </div>
-        </div>
-        <!-- SEGUNDA IMAGEN DE CARRUSEL -->
-        <div class="carousel-item">
-            <a href="trabajo2.html"><img src="{% static 'images/auto2.jpg' %}" class="d-block w-100" alt="..."></a>
-            <div class="carousel-caption d-none d-md-block text-white">
-            <span class="bg-black" style="font-size: 40px;">&nbsp;Pulido de Auto&nbsp;</span><br>
-            <span class="bg-black">&nbsp;Trabajo realizado por: Sergio Perez&nbsp;</span>
+          {% endif %}
+
+          {% if trabajos2y3 %}
+            {% for trabajos in trabajos2y3 %}
+              <div class="carousel-item">
+                <a href="trabajo2.html"><img src="{{ trabajos.imagenes.url }}" class="d-block w-100" alt="..."></a>
+                <div class="carousel-caption d-none d-md-block text-white">
+                  <span class="bg-black" style="font-size: 40px;">&nbsp;{{ trabajos.observacion }}&nbsp;</span><br>
+                  <span class="bg-black">&nbsp;Trabajo realizado por: {{ trabajos.nombreMecanico }}&nbsp;</span>
+                </div>
+              </div>
+            {% endfor %}
+          {% else%}
+            <div class="carousel-item">
+              <a href="trabajo2.html"><img src="{% static 'images/auto2.jpg' %}" class="d-block w-100" alt="..."></a>
+              <div class="carousel-caption d-none d-md-block text-white">
+                <span class="bg-black" style="font-size: 40px;">&nbsp;null&nbsp;</span><br>
+                <span class="bg-black">&nbsp;Trabajo realizado por: null&nbsp;</span>
+              </div>
             </div>
-        </div>
-        <!-- TERCERA PÁGINA DE CARRUSEL -->
-        <div class="carousel-item">
-            <a href="trabajo3.html"><img src="{% static 'images/auto3.jpg' %}" class="d-block w-100" alt="..."></a>
-            <div class="carousel-caption d-none d-md-block text-white">
-            <span class="bg-black" style="font-size: 40px;">&nbsp;Pintado de Auto&nbsp;</span><br>
-            <span class="bg-black">&nbsp;Trabajo realizado por: Carlos Sainz&nbsp;</span>
-            </div>
-        </div>
+          {% endif %}
         </div>
         <!-- BOTONES DE CARRUSEL -->
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
