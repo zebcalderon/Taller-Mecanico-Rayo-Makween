@@ -9,7 +9,7 @@ body {
 }
 
 .bg{
-    background-image: url(imagenes/Cars\ 2.jpeg);
+    background-image: url(images/Cars2.jpeg);
     background-position: center center;
 }
 
@@ -148,6 +148,22 @@ input{
 }
 
 #correo::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#p_nombre::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#ap_paterno::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#password_1::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#password_2::placeholder{
     color:rgb(190, 190, 190);
 }
 

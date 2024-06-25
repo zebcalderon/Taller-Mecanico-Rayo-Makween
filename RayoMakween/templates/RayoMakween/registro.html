@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="fontawesome-free-6.5.2-web/css/all.css">
+    <style>
+      .container{
+      display: grid;
+      place-items: center;
+    }
+    .navbar .form-control {
+      font-size: 20px;
+    }
+    </style>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+   <nav class="navbar fixed-top navbar-custom py-0 navbar-expand-lg bg-body-tertiary"  style="background-color: #ffffff;">
+    <div class="container-fluid" style="margin-left: 10%; margin-right: 10%;">
+      <nav class="navbar bg-body-tertiary" >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="inicio.html">
+            <img src="{% static 'images/iconoBlanco.png' %}" alt="Logo" width="auto" height="50" class="d-inline-block align-text-top">
+          </a>
+        </div>
+      </nav>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="inicio.html" style="font-size: 20px; color: rgba(255, 255, 255, 0.815)">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacto.html" style="font-size: 20px; color: rgba(255, 255, 255, 0.815);">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="trabajos.html" style="font-size: 20px; color: rgba(255, 255, 255, 0.815);">Trabajos</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 20px; color: rgba(255, 255, 255, 0.815);">
+              Categorías
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" style="font-size: 20px;" >Reparaciones</a></li>
+              <li><a class="dropdown-item" href="#" style="font-size: 20px;" >Arreglos</a></li>
+              <li><a class="dropdown-item" href="#" style="font-size: 20px;" >Mantención</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#" style="font-size: 20px;" >Productos</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex" style="margin-right: 30%;" role="search">
+          <input class="form-control me-2 .navbar-search" style="width: auto;" type="search" placeholder="Buscar en Makween.cl" aria-label="Search">
+          <button class="btn btn-outline-warning" type="submit" style="font-size: 20px; color: #ffffff;" >Buscar</button>
+        </form>
+        <nav class="nav-item">
+          <a class="btn btn-warning" href="signin.html" style="font-size: 18px; color: black; width: max-content;">Iniciar Sesión</a>
+        </nav>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row bg-danger rounded" style="margin-top: 17vh; box-shadow: 7px 13px 37px #2b2a2a;">
+        <div class="col p-5" style="margin-left: 3%; margin-right: 3%; width: 50vh;">
+            <h4 style="color: #fada26;">Formulario de registro</h3>
+            <!--Aquí comienzan los formularios con sus respectivas validaciones-->
+            <form id="formRegistro">
+                <div>
+                    <!--text-->
+                    <label for="p_nombre" class="form-label"></label>
+                    <input type="text" class="form-controls" id="p_nombre" placeholder="Ingrese su nombre"> 
+                </div>
+                <div>
+                  <!--text-->
+                  <label for="ap_paterno" class="form-label"></label>
+                  <input type="text" class="form-controls" id="ap_paterno" placeholder="Ingrese su apellido"> 
+                </div>
+                <div>
+                    <!--telefono-->
+                    <label for="telefono" class="form-label"></label>
+                    <input type="text" class="form-controls" id="telefonoContacto" placeholder="Ingrese su número de teléfono" >
+                </div>
+                <div>
+                    <!--correo-->
+                    <label for="correo" class="form-label"></label>
+                    <input type="email" class="form-controls" id="correoContacto" placeholder="Ingrese su correo electronico" >
+                </div>
+                <div>
+                  <!--password-->
+                  <label for="password_1" class="form-label"></label>
+                  <input type="password" class="form-controls" id="password_1" placeholder="Cree una contraseña" >
+               </div>
+                <div>
+                  <!--password-->
+                  <label for="password_2" class="form-label"></label>
+                  <input type="password" class="form-controls" id="password_2" placeholder="Repita su contraseña" >
+                </div>
+                <div>
+                    <input class="btn" type="submit" value="Enviar" onclick="validaRegistro()" style="background-color: #fada26; width: 100%; padding: 9px; margin-top: 25px;">
+                </div>
+                <p id="warningContacto" style="margin-top: 30px; text-align: center; color: yellow;"></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+  <!-- FOOTER DE PÁGINA -->
+  <div class="container-fluid bg-danger" style="margin-top: 300px;">
+    <footer class="py-5">
+        <div class="row">
+            <div class="col-4 md-3 d-flex align-items-center" style="padding-left: 150px;">
+                  <img src="{% static 'images/iconoBlanco.png' %}" alt="" width="200px"></svg>
+                  <span class="mb-3 mb-md-0 text-white">© 2022 Company, Inc</span>
+            </div>
+            <div class="col-4 align-items-center" style="color: white;">
+              <br>
+              <center>
+                <h5>¿Quieres trabajar con nosotros? 
+                <br><br><a class="btn btn-outline-warning bg-warning" style="color: black;" href="formPostulacion.html" ><u>Postula Aquí!</u></a></h5>
+              </center> 
+            </div>            
+            
+            <div class="col-4 mb-3" style="color: #ffffff;">
+                <form>
+                <br>
+                <h5>¡Suscríbete para recibir Ofertas y Noticias!</h5>
+                <p>Te contactaremos al correo para mantenerte actualizado.</p>
+                <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                    <label for="newsletter1" class="visually-hidden">Correo Electrónico</label>
+                    <input id="newsletter1" type="text" class="form-control" placeholder="Ingresa tu correo aquí...">
+                    <button class="btn btn-primary btn-warning" type="button" style="margin-right: 250px;">Suscribirse</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </footer>
+  </div>
+    </div>
+    <script src="{% static 'js/main.js' %}"></script>
+    
+</body>
+</html>
