@@ -12,7 +12,7 @@ class Trabajo(models.Model):
     imagenes            = models.ImageField(upload_to='images')
     
     def __str__(self):
-        return str(self.nombreTrabajo)
+        return str(self.nombreTrabajo)+" REALIZADO POR: "+ str(self.nombreMecanico)
     
 class Producto(models.Model):
     idProducto          = models.AutoField(primary_key=True)
