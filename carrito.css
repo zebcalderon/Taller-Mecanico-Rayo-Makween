@@ -39,11 +39,6 @@
     font-size: 25px;
 }
 
-.item-carrito {
-    height: 75px;
-
-}
-
 .btn-quitar {
     margin-top: 10px;
 }
@@ -66,7 +61,7 @@
     width: 100%;
 }
 
-.fila-items-carro {
+.row-producto {
     padding-top: 25px;
     padding-bottom: 25px;
 }

@@ -14,6 +14,12 @@ function ready() {
         button.addEventListener('click', quitarProducto)
     }
 
+    var agregarProductoCarrito = document.getElementsByClassName('shop-item-button')
+    for (var i = 0; i < agregarProductoCarrito.length; i++) {
+        var button = agregarProductoCarrito[i]
+        button.addEventListener('click', addToCartClicked)
+    }
+
     var cantidadProductoCarrito = document.getElementsByClassName('cantidad')
     for (var i = 0; i < cantidadProductoCarrito.length; i++){
         var input = cantidadProductoCarrito[i]
@@ -25,6 +31,23 @@ function quitarProducto(event){
     var buttonClicked = event.target
     buttonClicked.parentElement.parentElement.remove()
     actualizarTotalCarro()
+}
+
+function agregarProductoBoton(event){
+    var button = event.target
+    var itemTienda = event.parentElement.parentElement
+    var imagen = itemTienda.getElementsByClassName('producto-foto')[0].src
+    var titulo = itemTienda.getElementsByClassName('producto-nombre')[0].innerText
+    var precio = itemTienda.getElementsByClassName('producto-precio')[0].innerText
+    agregarProducto(imagen, titulo, precio)
+    actualizarTotalCarro()
+}
+
+function agregarProducto(imagen, titulo, precio){
+    var lineaCarro = document.createElement('div')
+    lineaCarro.classList.add('row-producto')
+    var filasCarrito = document.getElementsByClassName('productos-carrito')[0]
+    filasCarrito.append(lineaCarro)
 }
 
 function cantidadActualizada(event){
@@ -62,7 +85,7 @@ for (var i = 0; i < QuitarProductoCarrito.length; i++) {
 
 function actualizarTotalCarro() {
     var cajaitemsCarro = document.getElementsByClassName('caja-carrito')[0]
-    var filascarro = cajaitemsCarro.getElementsByClassName('fila-items-carro')
+    var filascarro = cajaitemsCarro.getElementsByClassName('row-producto')
     var total = 0
     for (var i = 0; i < filascarro.length; i++) {
         var cartRow = filascarro[i]
