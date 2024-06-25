@@ -14,10 +14,10 @@ function ready() {
         button.addEventListener('click', quitarProducto)
     }
 
-    var agregarProductoCarrito = document.getElementsByClassName('shop-item-button')
+    var agregarProductoCarrito = document.getElementsByClassName('agregar-carro')
     for (var i = 0; i < agregarProductoCarrito.length; i++) {
         var button = agregarProductoCarrito[i]
-        button.addEventListener('click', addToCartClicked)
+        button.addEventListener('click', agregarProductoBoton)
     }
 
     var cantidadProductoCarrito = document.getElementsByClassName('cantidad')
