@@ -3,6 +3,7 @@ from django.conf.urls.static import static
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
     path('inicio', views.inicio, name='inicio'),
     path('contacto', views.contacto, name='contacto'),
@@ -12,6 +13,7 @@ urlpatterns = [
     path('trabajo2', views.trabajo2, name='trabajo2'),
     path('trabajo3', views.trabajo3, name='trabajo3'),
     path('trabajos', views.trabajos, name='trabajos'),
+    path('trabajos/delete/<int:idTrabajo>/', views.delete_trabajo, name='delete_trabajo'),
     path('productos', views.productos, name='productos'),
     path('registro', views.registro, name='registro'),
     path('prueba', views.prueba, name='prueba'),

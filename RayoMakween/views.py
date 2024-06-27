@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import *
 from .models import *
 
 # Create your views here.
@@ -15,15 +16,42 @@ def inicio(request):
     return render(request, 'rayoMakween/inicio.html', context)
 
 def trabajos(request):
-    trabajos_todos      = Trabajo.objects.all()
-    isMecanico          = request.user.groups.filter(name='Mecanico').exists()
-    canAñadirTrabajo    = request.user.has_perm('rayoMakween.add_article')
-    context={
-        'todos_trabajos':   trabajos_todos,
-        'es_Mecanico':       isMecanico,
-        'tiene_AñadirTrabajo': canAñadirTrabajo
+    if request.method == 'POST':
+        if 'trabajo_id' in request.POST:
+            # Modify existing trabajo
+            trabajo = get_object_or_404(Trabajo, idTrabajo=request.POST.get('trabajo_id'))
+            form = TrabajoForm(request.POST, request.FILES, instance=trabajo)
+        else:
+            # Add new trabajo
+            form = TrabajoForm(request.POST, request.FILES)
+        
+        if form.is_valid():
+            form.save()
+            return redirect('trabajos')  # Replace 'trabajos' with the name of your URL pattern for this view
+        else:
+            print(form.errors)  # Print form errors to the console
+    else:
+        form = TrabajoForm()
+
+    trabajos_todos = Trabajo.objects.all()
+    isMecanico = request.user.groups.filter(name='Mecanico').exists()
+    canAñadirTrabajo = request.user.has_perm('rayoMakween.add_article')
+
+    context = {
+        'todos_trabajos': trabajos_todos,
+        'es_Mecanico': isMecanico,
+        'tiene_AñadirTrabajo': canAñadirTrabajo,
+        'form': form
     }
+
     return render(request, 'rayoMakween/trabajos.html', context)
+
+def delete_trabajo(request, idTrabajo):
+    trabajo = get_object_or_404(Trabajo, idTrabajo=idTrabajo)
+    if request.method == 'POST':
+        trabajo.delete()
+        return redirect('trabajos')
+    return render(request, 'rayoMakween/trabajos.html')
 
 def productos(request):
     productos = Producto.objects.all()
