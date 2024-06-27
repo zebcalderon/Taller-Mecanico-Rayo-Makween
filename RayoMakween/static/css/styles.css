@@ -233,3 +233,7 @@ textarea{
 .black {
     color: black;
 }
+
+.producto-foto {
+    object-fit: cover;
+}
