@@ -17,12 +17,13 @@ def inicio(request):
 
 def trabajos(request):
     if request.method == 'POST':
-        if 'trabajo_id' in request.POST:
-            # Modify existing trabajo
-            trabajo = get_object_or_404(Trabajo, idTrabajo=request.POST.get('trabajo_id'))
+        trabajo_id = request.POST.get('trabajo_id')
+        if trabajo_id:
+            # Update existing job
+            trabajo = get_object_or_404(Trabajo, idTrabajo=trabajo_id)
             form = TrabajoForm(request.POST, request.FILES, instance=trabajo)
         else:
-            # Add new trabajo
+            # Create new job
             form = TrabajoForm(request.POST, request.FILES)
         
         if form.is_valid():
@@ -37,11 +38,15 @@ def trabajos(request):
     isMecanico = request.user.groups.filter(name='Mecanico').exists()
     canAñadirTrabajo = request.user.has_perm('rayoMakween.add_article')
 
+    # Create a dictionary of forms for each job
+    forms_dict = {trabajo.idTrabajo: TrabajoForm(instance=trabajo) for trabajo in trabajos_todos}
+
     context = {
         'todos_trabajos': trabajos_todos,
         'es_Mecanico': isMecanico,
         'tiene_AñadirTrabajo': canAñadirTrabajo,
-        'form': form
+        'form': TrabajoForm(),
+        'forms_dict': forms_dict,
     }
 
     return render(request, 'rayoMakween/trabajos.html', context)
