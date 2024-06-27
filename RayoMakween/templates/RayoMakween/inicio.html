@@ -20,6 +20,7 @@
       display: grid;
       place-items: center;
     }
+
     </style>
     <link rel="stylesheet" href="fontawesome-free-6.5.2-web/css/all.css">
     {% load bootstrap5 %}
@@ -62,7 +63,7 @@
               <li><a class="dropdown-item" href="#" style="font-size: 20px;" >Arreglos</a></li>
               <li><a class="dropdown-item" href="#" style="font-size: 20px;" >Mantención</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#" style="font-size: 20px;" >Productos</a></li>
+              <li><a class="dropdown-item" href="productos" style="font-size: 20px;" >Productos</a></li>
             </ul>
           </li>
         </ul>
@@ -94,14 +95,6 @@
               <span class="bg-black">&nbsp;Trabajo realizado por: {{ trabajo1.nombreMecanico }}&nbsp;</span>
               </div>
           </div>
-          {% else %}
-            <div class="carousel-item active">
-              <a href="trabajo1"><img src="{% static 'images/auto2.jpg' %}" class="d-block w-100" alt="..."></a>
-              <div class="carousel-caption d-none d-md-block text-white">
-              <span class="bg-black" style="font-size: 40px;">&nbsp;null&nbsp;</span><br>
-              <span class="bg-black">&nbsp;Trabajo realizado por: null&nbsp;</span>
-              </div>
-            </div>
           {% endif %}
 
           {% if trabajos2y3 %}
@@ -114,14 +107,6 @@
                 </div>
               </div>
             {% endfor %}
-          {% else%}
-            <div class="carousel-item">
-              <a href="trabajo2"><img src="{% static 'images/auto2.jpg' %}" class="d-block w-100" alt="..."></a>
-              <div class="carousel-caption d-none d-md-block text-white">
-                <span class="bg-black" style="font-size: 40px;">&nbsp;null&nbsp;</span><br>
-                <span class="bg-black">&nbsp;Trabajo realizado por: null&nbsp;</span>
-              </div>
-            </div>
           {% endif %}
         </div>
         <!-- BOTONES DE CARRUSEL -->

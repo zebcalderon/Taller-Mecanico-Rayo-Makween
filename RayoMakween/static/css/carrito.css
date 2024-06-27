@@ -79,6 +79,9 @@
     margin-bottom: 30px;
 }
 
-.producto-precio {
-    margin-right: 50px;
+
+
+.agregar-carro {
+    position: absolute;
+    margin-left: 50px;
 }

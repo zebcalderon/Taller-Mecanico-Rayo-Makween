@@ -10,19 +10,20 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <style>
-    .navbar .form-control {
+    <style>.navbar .form-control {
       font-size: 20px;
+      
     }
-
-    .card-img-top {
-      width: 100%;
-      height: 400px;
+    .container {
+      margin-top: 2%;
+      margin-bottom: 50px;
+      width: 1500px;
+      border-radius: 12px;
       object-fit: cover;
     }
-
-    input {
-      color: black;
+    .carousel{
+      margin-top: 50px;
+      padding-bottom: 2%;
     }
     </style>
   </head>
@@ -61,7 +62,7 @@
               <li><a class="dropdown-item" href="#" style="font-size: 20px;" >Arreglos</a></li>
               <li><a class="dropdown-item" href="#" style="font-size: 20px;" >Mantención</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#" style="font-size: 20px;" >Productos</a></li>
+              <li><a class="dropdown-item" href="productos" style="font-size: 20px;" >Productos</a></li>
             </ul>
           </li>
         </ul>

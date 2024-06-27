@@ -18,6 +18,11 @@
 
       }
       
+      .bg {
+        background-image: url("{% static 'images/Cars2.jpeg' %}");
+        background-position: center;
+    }
+
     </style>
     {% load bootstrap5 %}
     {% bootstrap_css %}
@@ -58,7 +63,7 @@
                 <li><a class="dropdown-item" href="#" style="font-size: 20px;" >Arreglos</a></li>
                 <li><a class="dropdown-item" href="#" style="font-size: 20px;" >Mantención</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#" style="font-size: 20px;" >Productos</a></li>
+                <li><a class="dropdown-item" href="productos" style="font-size: 20px;" >Productos</a></li>
               </ul>
             </li>
           </ul>
