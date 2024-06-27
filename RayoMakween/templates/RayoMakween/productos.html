@@ -141,79 +141,33 @@
     
 
     <!-- Aquí están los productos -->
-    <div class="container-fluid" style="margin-top: 80px;">
+    <div class="container" style="margin-top: 50px;">
       <!--fila para el título-->
-      <div class="row" >
+      <div class="row">
         <div class="col text-center mt-5">
-          <h1 style="color: rgb(143, 41, 41)"><b>Productos Makween</b></h1>
+          <h1 style="color: rgb(143, 41, 41); margin-bottom: 20px;"><b>Productos Makween</b></h1>
         </div>
       </div>
 
       <!--Menu de productos (Estético)-->
       <div class="row">
         <!--Lista de Productos-->
-        <div class="col">
           <div class="row tienda">
-            <div class="col"></div>
-            <div class="col productos-tienda" id="card">
-              <div class="card text-bg-danger" style="height: 550px; width: 300px;">
-                <img src="imagenes/productos/producto_01.png" class="card-img-top producto-foto" alt="..." style="max-height: 65%;">
+            {% for producto in productos %}
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 productos-tienda" id="card">
+              <div class="card text-bg-danger" style="height: 550px; width: 300px; margin-bottom: 15px;">
+                <img src="{{ producto.imagenProducto.url }}" class="card-img-top producto-foto" alt="..." style="max-height: 65%;">
                 <div class="card-body">
                   <!-- Aceite de Auto, precio: $14.000 -->
-                  <h5 class="card-title">CASTROL</h5>
-                  <p class="producto-nombre">Aceite de Motor Castrol Edge Sintetico 5W30 1L</p>
-                  <span class="card-text producto-precio">$ 14,000</span>
+                  <h5 class="card-title">{{producto.marcaProducto}}</h5>
+                  <p class="producto-nombre">{{producto.nombreProducto}}</p>
+                  <span class="card-text producto-precio">$ {{producto.precioProducto}}</span>
                   <a class="btn btn-success agregar-carro">Agregar al Carro</a>
                 </div>
               </div> 
             </div>
-
-            <!--Columna responsive para las cards-->
-            <div class="col producto-tienda" id="card">
-              <div class="card text-bg-danger" style="height: 550px; width: 300px;">
-                <img src="imagenes/productos/producto_02.png" class="card-img-top" alt="..." style="max-height: 65%;">
-                <div class="card-body">
-                  
-                  <!-- Aceite de Auto, precio: $14.000 -->
-                  <h5 class="card-title">CASTROL</h5>
-                  <p class="producto-tienda">Aceite de Motor Castrol Edge Sintetico 5W30 1L</p>
-                  <span class="card-text">$ 14,000</span>
-                  <a href="trabajo1.html" class="btn btn-success">Agregar al Carro</a>
-                </div>
-              </div>
-            </div>
-
-            <!--Columna responsive para las cards-->
-            <div class="col producto-tienda" id="card">
-              <div class="card text-bg-danger" style="height: 550px; width: 300px;">
-                <img src="imagenes/productos/producto_02.png" class="card-img-top" alt="..." style="max-height: 65%;">
-                <div class="card-body">
-
-                  <!-- Aceite de Auto, precio: $14.000 -->
-                  <h5 class="card-title">CASTROL</h5>
-                  <p class="producto-tienda">Aceite de Motor Castrol Edge Sintetico 5W30 1L</p>
-                  <span class="card-text">$ 14,000</span>
-                  <a href="trabajo1.html" class="btn btn-success">Agregar al Carro</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col producto-tienda" id="card">
-              <div class="card text-bg-danger" style="height: 550px; width: 300px;">
-                <img src="imagenes/productos/producto_02.png" class="card-img-top" alt="..." style="max-height: 65%;">
-                <div class="card-body">
-
-                  <!-- Aceite de Auto, precio: $14.000 -->
-                  <h5 class="card-title">CASTROL</h5>
-                  <p class="producto-tienda">Aceite de Motor Castrol Edge Sintetico 5W30 1L</p>
-                  <span class="card-text">$ 14,000</span>
-                  <a href="trabajo1.html" class="btn btn-success">Agregar al Carro</a>
-                </div>
-              </div>
-            </div>
-            <div class="col"></div>
+            {% endfor %}
           </div>
-        </div>
       </div>
     </div>
 

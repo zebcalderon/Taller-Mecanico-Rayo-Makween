@@ -134,7 +134,7 @@
         <span class="visually-hidden">Next</span>
         </button>
     </div>
-
+    {% block content %}
     <!-- MENSAJE DE BIENVENIDA -->
     <div class="col p-5 rounded" style="margin-top: 100px; margin-left: 10%; margin-right: 10%;">
         <center><h1 class="bg-danger rounded" style="color: #ffffff; width: 70%; padding: 30px;"><b>¡Bienvenido a Rayo Makween!</b></h1></center>
@@ -218,6 +218,9 @@
       </div>
     </div>
     
+
+    {% endblock %}
+
     <!-- FOOTER DE PÁGINA -->
     <div class="container-fluid bg-danger" style="margin-top: 300px;">
       <footer class="py-5">

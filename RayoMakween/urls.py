@@ -14,6 +14,7 @@ urlpatterns = [
     path('trabajos', views.trabajos, name='trabajos'),
     path('productos', views.productos, name='productos'),
     path('registro', views.registro, name='registro'),
+    path('prueba', views.prueba, name='prueba'),
 ]
 # NO BORRAR
 if settings.DEBUG:

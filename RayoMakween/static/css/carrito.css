@@ -74,3 +74,11 @@
     max-height: 50px;
 }
 
+.producto-nombre {
+    min-height: 50px;
+    margin-bottom: 30px;
+}
+
+.producto-precio {
+    margin-right: 50px;
+}

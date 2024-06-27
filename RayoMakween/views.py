@@ -6,11 +6,21 @@ from .models import *
 def inicio(request):
     primer_trabajo = Trabajo.objects.first()  # Get the first record
     trabajos_siguientes = Trabajo.objects.all()[1:3]
+    
     context = {
         'trabajo1': primer_trabajo,
-        'trabajos2y3': trabajos_siguientes
+        'trabajos2y3': trabajos_siguientes,
+        
     }
     return render(request, 'rayoMakween/inicio.html', context)
+
+def productos(request):
+    productos = Producto.objects.all()
+    
+    context={
+        'productos': productos
+    }
+    return render(request, 'rayoMakween/productos.html', context)
 
 def formPostulacion(request):
     context={}
@@ -19,10 +29,6 @@ def formPostulacion(request):
 def contacto(request):
     context={}
     return render(request, 'rayoMakween/contacto.html', context)
-
-def productos(request):
-    context={}
-    return render(request, 'rayoMakween/productos.html', context)
 
 def signin(request):
     context={}
@@ -48,3 +54,6 @@ def registro(request):
     context={}
     return render(request, 'rayoMakween/registro.html', context)
 
+def prueba(request):
+    context={}
+    return render(request, 'rayoMakween/prueba.html', context)
