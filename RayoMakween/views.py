@@ -14,6 +14,17 @@ def inicio(request):
     }
     return render(request, 'rayoMakween/inicio.html', context)
 
+def trabajos(request):
+    trabajos_todos      = Trabajo.objects.all()
+    isMecanico          = request.user.groups.filter(name='Mecanico').exists()
+    canAñadirTrabajo    = request.user.has_perm('rayoMakween.add_article')
+    context={
+        'todos_trabajos':   trabajos_todos,
+        'es_Mecanico':       isMecanico,
+        'tiene_AñadirTrabajo': canAñadirTrabajo
+    }
+    return render(request, 'rayoMakween/trabajos.html', context)
+
 def productos(request):
     productos = Producto.objects.all()
     
@@ -45,10 +56,6 @@ def trabajo2(request):
 def trabajo3(request):
     context={}
     return render(request, 'rayoMakween/trabajo3.html', context)
-
-def trabajos(request):
-    context={}
-    return render(request, 'rayoMakween/trabajos.html', context)
 
 def registro(request):
     context={}

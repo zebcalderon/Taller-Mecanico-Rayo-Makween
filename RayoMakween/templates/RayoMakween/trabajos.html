@@ -6,6 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Makween</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <style>
     .navbar .form-control {
@@ -18,9 +21,6 @@
       object-fit: cover;
     }
     </style>
-    {% load bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
   </head>
 
   <body>
@@ -83,107 +83,63 @@
       <!--Fila con tres columnas, una columna para cada trabajo-->
       <div class="row">
         <!--Columna responsive para las cards-->
-        <div class="col-md-4 col-sm-12 mt-5" id="cardw">
-          <div class="card text-bg-danger" style="height: 370px">
-            <img src="images/auto1.jpg" class="card-img-top" alt="..." style="max-height: 50%;">
-            <div class="card-body">
-              <h5 class="card-title">Trabajo 1</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="trabajo1.html" class="btn btn-primary">Ver Más</a>
+        <div class="row row-trabajos">
+          {% if es_Mecanico or tiene_AñadirTrabajo %}
+          <div class="col-md-4 col-sm-12 mt-5" id="cardw">
+            <div class="card text-bg-danger" style="height: 370px">
+              <div class="boton-agregar card-body">
+                <button href="" style="border: none; background: none;">
+                  <img class='boton-agregar-img' src="{% static 'images/add-button.png' %}" 
+                  alt="" data-bs-target="#añadir-trabajo" data-bs-toggle="modal">
+                </button>
+                <span>Añadir nuevo Trabajo</span>
+              </div>
             </div>
           </div>
-        </div>
-        <!--Columna responsive para las cards-->
-        <div class="col-md-4 col-sm-12 mt-5" id="cards">
-          <div class="card text-bg-danger" style="height: 370px">
-            <img src="images/auto2.jpg" class="card-img-top" alt="auto1" style="max-height: 50%;">
-            <div class="card-body">
-              <h5 class="card-title">Trabajo 2</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="trabajo2.html" class="btn btn-primary">Ver Más</a>
+          <div class="modal fade modal-xl" id="añadir-trabajo" aria-labelledby="añadir-trabajo">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5 fw-bold" id="añadir-trabajo">
+                    Añadir Trabajo
+                  </h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                  </button>
+                </div>
+                <div class="container justify-content-center">
+                  <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                      <div class="modal-body justify-content-center">
+                        <h3 class="card-title fw-bold">
+                          Título
+                        </h3>
+                        <div class="justify-content">
+                          <div class="row">
+                            <h4>Descripción
+
+                            </h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <!--Columna responsive para las cards-->
-        <div class="col-md-4 col-sm-12 mt-5" id="cardw">
-          <div class="card text-bg-danger" style="height: 370px">
-            <img src="images/auto3.jpg" class="card-img-top" alt="..." style="max-height: 50%;">
-            <div class="card-body">
-              <h5 class="card-title">Trabajo 3</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="trabajo3.html" class="btn btn-primary" >Ver Más</a>
+          {% endif %}
+          {% for trabajo in todos_trabajos %}
+          <div class="col-md-4 col-sm-12 mt-5" id="cardw">
+            <div class="card text-bg-danger" style="height: 370px">
+              <img src="{{ trabajo.imagenes.url }}" class="card-img-top" alt="..." style="max-height: 50%;">
+              <div class="card-body">
+                <h5 class="card-title">{{trabajo.nombreTrabajo}}</h5>
+                <p class="card-text">{{trabajo.observacion}}</p>
+                <a href="trabajo1.html" class="btn btn-primary">Ver Más</a>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <!--Fila con tres columnas, una columna para cada trabajo-->
-      <div class="row" style="margin-top: 35px;" id="cardw">
-        <div class="col-md-4 col-sm-12 mt-5">
-          <div class="card text-bg-danger" style="height: 370px">
-            <img src="images/auto3.jpg" class="card-img-top" alt="..." style="max-height: 50%;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <!--Columna responsive para las cards-->
-        <div class="col-md-4 col-sm-12 mt-5" id="cardw">
-          <div class="card text-bg-danger" style="height: 370px">
-            <img src="images/auto1.jpg" class="card-img-top" alt="auto1" style="max-height: 50%;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <!--Columna responsive para las cards-->
-        <div class="col-md-4 col-sm-12 mt-5" id="cardw">
-          <div class="card text-bg-danger" style="height: 370px">
-            <img src="images/auto2.jpg" class="card-img-top" alt="..." style="max-height: 50%;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Fila con tres columnas, una columna para cada trabajo-->
-      <div class="row" style="margin-top: 35px; margin-bottom: 14%;">
-        <div class="col-md-4 col-sm-12 mt-5" id="cardw">
-          <div class="card text-bg-danger" style="height: 370px">
-            <img src="images/auto3.jpg" class="card-img-top" alt="..." style="max-height: 50%;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <!--Columna responsive para las cards-->
-        <div class="col-md-4 col-sm-12 mt-5" id="cardw">
-          <div class="card text-bg-danger" style="height: 370px">
-            <img src="images/auto1.jpg" class="card-img-top" alt="auto1" style="max-height: 50%;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <!--Columna responsive para las cards-->
-        <div class="col-md-4 col-sm-12 mt-5" id="cardw">
-          <div class="card text-bg-danger" style="height: 370px">
-            <img src="images/auto2.jpg" class="card-img-top" alt="..." style="max-height: 50%;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>

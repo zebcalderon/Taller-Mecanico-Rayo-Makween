@@ -218,3 +218,14 @@ textarea{
     width: 970px;
 }
 
+.boton-agregar {
+    max-height: 200px;
+    display: grid;
+    place-items: center;
+}
+
+.boton-agregar-img {
+    max-height: 200px;
+    top: 50%;
+    right: 50%;
+}
