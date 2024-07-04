@@ -18,7 +18,6 @@
 {% bootstrap_javascript %}
 {% block content %}
 
-
     <!--Aquí comienza la pagina de contactos en sí-->
     <div class="container">
         <div class="row bg-danger rounded" style="margin-top: 17vh; box-shadow: 7px 13px 37px #2b2a2a;">
@@ -65,4 +64,9 @@
             </div>
         </div>
     </div>
+    {% endblock %}
+
+    {% block script %}
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBazugLTVR8Wes5xSVcKoTZGGpvuqJ5aPM&callback=iniciarMap"></script>
     {% endblock %}

@@ -72,6 +72,8 @@
           <a class="btn btn-warning" href="signin" style="font-size: 18px; color: black; width: max-content;">Iniciar Sesión</a>
         </nav>
       </div>
+      {% block carrito %}
+      {% endblock %}
     </div>
   </nav>
   {% block content %}
@@ -234,9 +236,10 @@
           </div>
       </footer>
     </div>
-    
+    {% block script %}
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/apiGoogle.js' %}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBazugLTVR8Wes5xSVcKoTZGGpvuqJ5aPM&callback=iniciarMap"></script>
+    {% endblock %}
   </body>
 </html>
