@@ -1,0 +1,242 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- BLOCK TITLE PARA CAMBIAR EL TÍTULO SEGÚN LA PÁGINA -->
+    <title>{% block title %}Rayo Makween{% endblock %}</title> 
+    
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+    <!-- BLOCK HEAD PARA AÑADIR NUEVOS CSS O JS -->
+    {% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+    <link rel="stylesheet" href="{% static 'Styleup.css' %}">
+    <style>.navbar .form-control {
+      font-size: 20px;
+    }
+    .card-img-top {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .container{
+      display: grid;
+      place-items: center;
+    }
+
+    </style>
+    <link rel="stylesheet" href="fontawesome-free-6.5.2-web/css/all.css">
+    {% endblock %}
+  </head>
+
+  <body>
+
+   <!-- BARRA DE NAVEGACIÓN -->
+   <nav class="navbar fixed-top navbar-custom py-0 navbar-expand-lg bg-body-tertiary"  style="background-color: #ffffff;">
+    <div class="container-fluid" style="margin-left: 10%; margin-right: 10%;">
+      <nav class="navbar bg-body-tertiary" >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="inicio">
+            <img src="{% static 'images/iconoBlanco.png' %}" alt="Logo" width="auto" height="50" class="d-inline-block align-text-top">
+          </a>
+        </div>
+      </nav>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="inicio" style="font-size: 20px; color: rgba(255, 255, 255, 0.815)">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacto" style="font-size: 20px; color: rgba(255, 255, 255, 0.815);">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="trabajos" style="font-size: 20px; color: rgba(255, 255, 255, 0.815);">Trabajos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="productos" style="font-size: 20px; color: rgba(255, 255, 255, 0.815);">Productos</a>
+          </li>
+        </ul>
+        <form class="d-flex" style="margin-right: 30%;" role="search">
+          <input class="form-control me-2 .navbar-search" style="width: auto;" type="search" placeholder="Buscar en Makween.cl" aria-label="Search">
+          <button class="btn btn-outline-warning" type="submit" style="font-size: 20px; color: #ffffff;" >Buscar</button>
+        </form>
+        <nav class="nav-item">
+          <a class="btn btn-warning" href="signin" style="font-size: 18px; color: black; width: max-content;">Iniciar Sesión</a>
+        </nav>
+      </div>
+    </div>
+  </nav>
+  {% block content %}
+  <!-- CARRUSEL -->
+    <div id="carouselExampleCaptions" class="carousel slide carousel-dark slide carousel-fade" data-bs-ride="carousel" style="margin-top: 80px;" >
+        <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" ></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner" >
+          <!-- PRIMERA IMAGEN DE CARRUSEL -->
+          {% if trabajo1 %}
+          <div class="carousel-item active">
+              <a href="trabajo1"><img src="{{ trabajo1.imagenes.url }}" class="d-block w-100" alt="..."></a>
+              <div class="carousel-caption d-none d-md-block text-white">
+              <span class="bg-black" style="font-size: 40px;">&nbsp;{{ trabajo1.observacion }}&nbsp;</span><br>
+              <span class="bg-black">&nbsp;Trabajo realizado por: {{ trabajo1.nombreMecanico }}&nbsp;</span>
+              </div>
+          </div>
+          {% endif %}
+
+          {% if trabajos2y3 %}
+            {% for trabajos in trabajos2y3 %}
+              <div class="carousel-item">
+                <a href="trabajo2"><img src="{{ trabajos.imagenes.url }}" class="d-block w-100" alt="..."></a>
+                <div class="carousel-caption d-none d-md-block text-white">
+                  <span class="bg-black" style="font-size: 40px;">&nbsp;{{ trabajos.observacion }}&nbsp;</span><br>
+                  <span class="bg-black">&nbsp;Trabajo realizado por: {{ trabajos.nombreMecanico }}&nbsp;</span>
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+        <!-- BOTONES DE CARRUSEL -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden" style="font-size: 25px;" >Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- MENSAJE DE BIENVENIDA -->
+    <div class="col p-5 rounded" style="margin-top: 100px; margin-left: 10%; margin-right: 10%;">
+        <center><h1 class="bg-danger rounded" style="color: #ffffff; width: 70%; padding: 30px;"><b>¡Bienvenido a Rayo Makween!</b></h1></center>
+        <center><p class="text-start" style="margin-top: 5%; font-size: 25px; width: 70%;">En nuestro taller, fusionamos la pasión por la mecánica con la excelencia en el servicio. Desde simples reparaciones hasta proyectos personalizados, estamos aquí para hacer realidad tus ideas sobre vehículos.
+            <br><br>Explora nuestro catálogo de trabajos realizados y descubre la calidad y precisión que nos define. ¿Necesitas una reparación rápida o estás planeando un proyecto a largo plazo? Con nuestro equipo de expertos en mecánica automotriz, puedes confiar en que tu vehículo estará en las mejores manos.
+            <br><br>¡Regístrate para acceder a nuestras ofertas exclusivas y simplificar tus futuras solicitudes! En Rayo Makween, cada detalle cuenta y cada cliente es una prioridad.
+            <br><br>¿Listo para llevar tu experiencia automotriz al siguiente nivel? ¡Únete a nosotros hoy mismo en Rayo Makween!</p>         
+        </center>
+    </div>
+
+    <!-- CARDS MOSTRANDO SERVICIOS -->
+    <div class="container rounded-3" style="margin-top: 100px;">
+      <h1 class="bg-danger text-center rounded" style="color: #ffffff; width: 77%; padding: 30px;"><b>Nuestros servicios</b></h1>
+      <div class="row">
+        <div class="col-lg-6 col-md-12 g-5">
+          <div class="card" style="width: 50vh;">
+            <img src="{% static 'images/auto2motor.jpg' %}" class="card-img-top" alt="..." style="max-height: 50%;">
+            <div class="card-body">
+              <h4>Mantenimiento</h4>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 g-5">
+          <div class="card" style="width: 50vh;">
+            <img src="{% static 'images/auto1interior.jpg' %}" class="card-img-top" alt="..." style="max-height: 50%;">
+            <div class="card-body">
+              <h4>Desabolladura y pintura</h4>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-12 g-5">
+          <div class="card" style="width: 50vh;">
+            <img src="{% static 'images/auto2motor.jpg' %}" class="card-img-top" alt="..." style="max-height: 50%;">
+            <div class="card-body">
+              <h4>Venta de repuestos</h4>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 g-5">
+          <div class="card" style="width: 50vh;">
+            <img src="{% static 'images/auto1interior.jpg' %}" class="card-img-top" alt="..." style="max-height: 50%;">
+            <div class="card-body">
+              <h4>Post venta</h4>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-12 g-5">
+          <div class="card" style="width: 50vh;">
+            <img src="{% static 'images/auto2motor.jpg' %}" class="card-img-top" alt="..." style="max-height: 50%;">
+            <div class="card-body">
+              <h4>Servicio grúa 24 horas</h4>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 g-5">
+          <div class="card" style="width: 50vh;">
+            <img src="{% static 'images/auto1interior.jpg' %}" class="card-img-top" alt="..." style="max-height: 50%;">
+            <div class="card-body">
+              <h4>Servicio 24/7</h4>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="map" style="margin-top: 200px;"></div>
+
+    <div class="go-top-container">
+      <div class="go-top-button">
+        <i class="fas fa-chevron-up"></i>
+      </div>
+    </div>
+    
+
+    {% endblock %}
+
+    <!-- FOOTER DE PÁGINA -->
+    <div class="container-fluid bg-danger" style="margin-top: 300px;">
+      <footer class="py-5">
+          <div class="row">
+              <div class="col-4 md-3 d-flex align-items-center" style="padding-left: 150px;">
+                    <img src="{% static 'images/iconoBlanco.png' %}" alt="" width="200px"></svg>
+                    <span class="mb-3 mb-md-0 text-white">© 2022 Company, Inc</span>
+              </div>
+              <div class="col-4 align-items-center" style="color: white;">
+                <br>
+                <center>
+                  <h5>¿Quieres trabajar con nosotros? 
+                  <br><br><a class="btn btn-outline-warning bg-warning" style="color: black;" href="formPostulacion" ><u>Postula Aquí!</u></a></h5>
+                </center> 
+              </div>            
+              
+              <div class="col-4 mb-3" style="color: #ffffff;">
+                  <form>
+                  <br>
+                  <h5>¡Suscríbete para recibir Ofertas y Noticias!</h5>
+                  <p>Te contactaremos al correo para mantenerte actualizado.</p>
+                  <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                      <label for="newsletter1" class="visually-hidden">Correo Electrónico</label>
+                      <input id="newsletter1" type="text" class="form-control" placeholder="Ingresa tu correo aquí...">
+                      <button class="btn btn-primary btn-warning" type="button" style="margin-right: 250px;">Suscribirse</button>
+                  </div>
+                  </form>
+              </div>
+          </div>
+      </footer>
+    </div>
+    
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/apiGoogle.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBazugLTVR8Wes5xSVcKoTZGGpvuqJ5aPM&callback=iniciarMap"></script>
+  </body>
+</html>

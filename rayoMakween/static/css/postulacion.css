@@ -1,0 +1,38 @@
+#rut::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#appaterno::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#apmaterno::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#nombre::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#edad::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#correo::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#celular::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#profesion::placeholder{
+    color:rgb(190, 190, 190);
+}
+
+#motivo::placeholder{
+    color:rgb(190, 190, 190);
+}
+h3 {
+    color: white;
+}
