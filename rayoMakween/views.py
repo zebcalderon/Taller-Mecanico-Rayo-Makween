@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import *
 from .models import *
-
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 # Create your views here.
 
 def inicio(request):
@@ -58,6 +59,7 @@ def delete_trabajo(request, idTrabajo):
         return redirect('trabajos')
     return render(request, 'rayoMakween/trabajos.html')
 
+@login_required
 def productos(request):
     productos = Producto.objects.all()
     
@@ -97,3 +99,7 @@ def registro(request):
 def prueba(request):
     context={}
     return render(request, 'rayoMakween/prueba.html', context)
+
+def exit(request):
+    logout(request)
+    return redirect('inicio')

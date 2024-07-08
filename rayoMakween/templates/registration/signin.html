@@ -39,10 +39,11 @@
 
           <h2 class="fw-bold text-center py-5">Bienvenido</h2>
           <!--Formularios-->
-          <form class="form" id="form">
+          <form class="form" id="form" method="post">
+            {% csrf_token %}
             <div class="mb-4">
               <label for="email" id="l1" class="form-label">Correo Electrónico<span class="warnings" id="warnings1"></span></label>
-              <input type="email" class="form-control" name="email" id="email">
+              <input type="email" class="form-control" name="username" id="email">
             </div>
             <div class="mb-4">
               <label for="pass" id="l2" class="form-label">Contraseña<span class="warnings" id="warnings2"></span></label>

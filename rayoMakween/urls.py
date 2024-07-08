@@ -2,6 +2,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
 from . import views
+from .views import exit
+
 
 
 urlpatterns = [
@@ -18,6 +20,7 @@ urlpatterns = [
     path('productos', views.productos, name='productos'),
     path('registro', views.registro, name='registro'),
     path('prueba', views.prueba, name='prueba'),
+    path('logout/', exit, name='exit'),
 ]
 # NO BORRAR
 if settings.DEBUG:
