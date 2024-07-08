@@ -1,0 +1,24 @@
+<div class="row justify-content-center">
+
+    <div class="mb-4">
+        <label for="floatingInput" id="l1" class="form-label">Nombre de Mecánico<span class="warnings" id="warnings1"></span></label>
+        <select id="user-select" class="form-select">
+        <option value="">Selecciona al Mecánico</option>
+        {% for mecanico in mecanicos %}
+          <option value="{{ mecanico.usuario.username }}">
+            {{ mecanico.usuario.first_name }} {{ mecanico.usuario.last_name }}
+            (
+              {{ mecanico.tipo_usuario }}
+              {% if mecanico.tipo_usuario == 'Cliente' %}
+                {% if mecanico.subscrito %}
+                  PREMIUM
+                {% endif %}
+              {% endif %}
+            )
+          </option>
+        {% endfor %}
+      </select>
+
+    </div>
+  
+  </div>

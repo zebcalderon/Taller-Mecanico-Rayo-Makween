@@ -2,7 +2,9 @@
 {% load static %}
 {% block title %}Iniciar Sesión{% endblock %}
 {% block extra_head %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
     <style>
       .navbar .form-control {
         font-size: 20px;
@@ -39,15 +41,15 @@
 
           <h2 class="fw-bold text-center py-5">Bienvenido</h2>
           <!--Formularios-->
-          <form class="form" id="form" method="post">
+          <form class="form" id="form" method="post" action="">
             {% csrf_token %}
             <div class="mb-4">
-              <label for="email" id="l1" class="form-label">Correo Electrónico<span class="warnings" id="warnings1"></span></label>
-              <input type="email" class="form-control" name="username" id="email">
+              <label for="floatingInput" id="l1" class="form-label">Correo Electrónico<span class="warnings" id="warnings1"></span></label>
+              <input type="text" class="form-control" name="username" id="floatingInput">
             </div>
             <div class="mb-4">
-              <label for="pass" id="l2" class="form-label">Contraseña<span class="warnings" id="warnings2"></span></label>
-              <input type="password" class="form-control" name="password" id="pass">
+              <label for="floatingPassword" id="l2" class="form-label">Contraseña<span class="warnings" id="warnings2"></span></label>
+              <input type="password" class="form-control" name="password" id="floatingPassword">
             </div>
             <div class="mb-4 form-check">
               <input type="checkbox" name="connected" class="form-check-input">
@@ -55,8 +57,9 @@
             </div>
             <div class="d-grid gap-2 col-6 mx-auto">
               <p id="warnings3" style="text-align: center; color: red;font-size: 15px; font-family: Arial, Helvetica, sans-serif;"></p>
-              <input type="submit" id="btnIni" onclick="valida()" value="Iniciar Sesión">
+              
             </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar Sesión</button>
             
             <div class="my-3 text-center">
               <span>¿No tienes cuenta? <a href="registro">Regístrate</a></span><br>

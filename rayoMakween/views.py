@@ -48,6 +48,7 @@ def trabajos(request):
         'tiene_AñadirTrabajo': canAñadirTrabajo,
         'form': TrabajoForm(),
         'forms_dict': forms_dict,
+        'mecanicos': Mecanico.objects.all(),
     }
 
     return render(request, 'rayoMakween/trabajos.html', context)
@@ -76,9 +77,12 @@ def contacto(request):
     context={}
     return render(request, 'rayoMakween/contacto.html', context)
 
-def signin(request):
+@login_required
+def login(request):
     context={}
-    return render(request, 'rayoMakween/signin.html', context)
+    return render(request, 'registration/login.html', context)
+
+
 
 def trabajo1(request):
     context={}

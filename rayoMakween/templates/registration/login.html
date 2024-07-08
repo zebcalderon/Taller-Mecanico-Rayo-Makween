@@ -1,0 +1,75 @@
+{% extends 'rayoMakween/inicio.html' %}
+{% load static %}
+{% block title %}Iniciar Sesión{% endblock %}
+{% block extra_head %}
+<link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <style>
+      .navbar .form-control {
+        font-size: 20px;
+      }
+      body{
+        background: #ffe259;
+        background: linear-gradient(to right, #ffa751, #ffe259);
+      }
+      .bg {
+        background-image: url("{% static 'images/Cars2.jpeg' %}");
+        background-position: center;
+      }
+    </style>
+{% endblock %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block content %}
+
+    <!--Aquí empieza el código para el Login-->
+    <div class="container w-75 bg-danger rounded shadow needs-validation" novalidate style="margin-top: 16vh;">
+      <!--Fila con dos columnas-->
+      <div class="row">
+        <!--primera columna para la imagen la cual esta arriba en el style como clase .bg-->
+        <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6  rounded-start">
+
+        </div>
+        <!--Columna para el login en sí-->
+        <div class="col bg-white p-5 rounded-end">
+          <!--Logo de la empresa-->
+          <div class="text-end">
+            <img src="{% static 'images/icono.png' %}" width="70" alt="icono">
+          </div>
+
+          <h2 class="fw-bold text-center py-5">Bienvenido</h2>
+          <!--Formularios-->
+          <form class="form" id="form" method="post" action="">
+            {% csrf_token %}
+            <div class="mb-4">
+              <label for="floatingInput" id="l1" class="form-label">Usuario<span class="warnings" id="warnings1"></span></label>
+              <input type="text" class="form-control" name="username" id="floatingInput">
+            </div>
+            <div class="mb-4">
+              <label for="floatingPassword" id="l2" class="form-label">Contraseña<span class="warnings" id="warnings2"></span></label>
+              <input type="password" class="form-control" name="password" id="floatingPassword">
+            </div>
+            <div class="mb-4 form-check">
+              <input type="checkbox" name="connected" class="form-check-input">
+              <label for="connected" class="form-check-label">Mantenerme Conectado</label>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <p id="warnings3" style="text-align: center; color: red;font-size: 15px; font-family: Arial, Helvetica, sans-serif;"></p>
+            </div>
+            <button class="w-100 btn btn-lg btn-danger" type="submit">Iniciar Sesión</button>
+            
+            <div class="my-3 text-center">
+              <span>¿No tienes cuenta? <a href="registro">Regístrate</a></span><br>
+              <span><a href="#">Recuperar Contraseña</a></span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+
+    {% block script %}
+    <script src="{% static 'js/main.js' %}"></script>
+    {% endblock %}

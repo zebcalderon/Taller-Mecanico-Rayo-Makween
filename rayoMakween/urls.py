@@ -11,16 +11,16 @@ urlpatterns = [
     path('inicio', views.inicio, name='inicio'),
     path('contacto', views.contacto, name='contacto'),
     path('formPostulacion', views.formPostulacion, name='formPostulacion'),
-    path('signin', views.signin, name='signin'),
-    # path('trabajo1', views.trabajo1, name='trabajo1'),
-    # path('trabajo2', views.trabajo2, name='trabajo2'),
-    # path('trabajo3', views.trabajo3, name='trabajo3'),
+    path('login', views.login, name='login'),
+     path('trabajo1', views.trabajo1, name='trabajo1'),
+     path('trabajo2', views.trabajo2, name='trabajo2'),
+     path('trabajo3', views.trabajo3, name='trabajo3'),
     path('trabajos', views.trabajos, name='trabajos'),
     path('trabajos/delete/<int:idTrabajo>/', views.delete_trabajo, name='delete_trabajo'),
     path('productos', views.productos, name='productos'),
     path('registro', views.registro, name='registro'),
     path('prueba', views.prueba, name='prueba'),
-    path('logout/', exit, name='exit'),
+    path('logout', exit, name='exit'),
 ]
 # NO BORRAR
 if settings.DEBUG:
