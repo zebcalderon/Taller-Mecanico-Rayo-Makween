@@ -3,6 +3,8 @@ from .forms import *
 from .models import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from .forms import CustomUserCreationForm
+from django.contrib.auth import authenticate, login
 # Create your views here.
 
 def inicio(request):
@@ -107,3 +109,20 @@ def prueba(request):
 def exit(request):
     logout(request)
     return redirect('inicio')
+
+def register(request):
+    data = {
+        'form' : CustomUserCreationForm()
+    }
+
+    if request.method == 'POST':
+        user_crearion_form = UserCreationForm(data=request.POST)
+
+        if user_crearion_form.is_valid():
+            user_crearion_form.save()
+
+            user = authenticate(username=user_crearion_form.cleaned_data['username'], password=user_crearion_form.cleaned_data['password1'])
+            login(request, user)
+
+            return redirect('inicio')
+    return render(request, 'registration/register.html', data)

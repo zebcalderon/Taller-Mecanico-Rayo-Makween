@@ -1,5 +1,7 @@
 from django import forms
 from .models import *
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 class TrabajoForm(forms.ModelForm):
 
@@ -14,3 +16,9 @@ class TrabajoForm(forms.ModelForm):
         for field_name, field in self.fields.items():
             if self.instance and hasattr(self.instance, field_name):
                 field.widget.attrs['placeholder'] = getattr(self.instance, field_name)
+
+class CustomUserCreationForm(UserCreationForm):
+
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']

@@ -1,0 +1,40 @@
+{% extends 'rayoMakween/inicio.html' %}
+{% load static %}
+{% block title %}Registro{% endblock %}
+{% block extra_head %}
+{% load crispy_forms_tags %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="fontawesome-free-6.5.2-web/css/all.css">
+    <style>
+      .container{
+      display: grid;
+      place-items: center;
+    }
+    .navbar .form-control {
+      font-size: 20px;
+    }
+    </style>
+{% endblock %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block content %}
+
+  <div class="container">
+    <div class="row bg-danger rounded" style="margin-top: 17vh; box-shadow: 7px 13px 37px #2b2a2a;">
+        <div class="col p-5" style="margin-left: 3%; margin-right: 3%; width: 50vh;">
+            <h4 style="color: #fada26;">Formulario de registro</h3>
+            <!--Aquí comienzan los formularios con sus respectivas validaciones-->
+            {{ form | crispy }}
+              <div>
+                  <input class="btn" type="submit" value="Enviar" onclick="validaRegistro()" style="background-color: #fada26; width: 100%; padding: 9px; margin-top: 25px;">
+              </div>
+              <p id="warningContacto" style="margin-top: 30px; text-align: center; color: yellow;"></p>
+        </div>
+    </div>
+  </div>
+    {% endblock %}
+
+    {% block script %}
+    <script src="{% static 'js/main.js' %}"></script>
+    {% endblock %}
