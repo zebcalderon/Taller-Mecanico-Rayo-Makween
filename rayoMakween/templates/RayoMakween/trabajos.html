@@ -24,6 +24,16 @@
       .foto-trabajos {
         object-fit: cover;
       }
+      
+      .modal-dialog.modal-xl {
+        max-width: 60%; /* Ensure the modal takes up 90% of the viewport width */
+      }
+
+      /* Ensure form elements do not exceed the column width */
+      .modal-body .form-control {
+        max-width: 100%; /* Ensure the form controls do not exceed the column width */
+      }
+
     </style>
 {% endblock %}
 {% load bootstrap5 %}
@@ -55,57 +65,48 @@
               </div>
             </div>
           </div>
-          <div class="modal fade" id="añadir-trabajo" aria-labelledby="añadir-trabajo">
-            <div class="modal-dialog modal-dialog-centered">
+          <div class="modal fade" id="añadir-trabajo" tabindex="-1" aria-labelledby="añadir-trabajo" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5 fw-bold" id="añadir-trabajo">
-                    Añadir Trabajo
-                  </h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                  </button>
+                  <h5 class="modal-title">Trabajo Detalles</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="container justify-content-center">
-                  <div class="row">
-                    <div class="col-lg-6 col-md-12">
-                      <div class="modal-body justify-content-center">
-                        <div class="row">
-                          <div class="col-12 col-md-6 offset-md-2">
-                            <!-- PARA AGREGAR MÁS TRABAJOS -->
-                            <form action="{% url 'trabajos' %}" method="post" enctype="multipart/form-data">
-                              {% csrf_token %}
-                              <div class="mb-4">
-                                <label for="floatingInput" id="l1" class="form-label">Título de Trabajo<span class="warnings" id="warnings1"></span></label>
-                                <input type="text" class="form-control" name="nombreTrabajo" id="floatingInput">
-                              </div>
-                              <!-- <div class="mb-4">
-                                <label for="floatingInput" id="l1" class="form-label">Nombre de Mecánico<span class="warnings" id="warnings1"></span></label>
-                                <input type="text" class="form-control" name="nombreMecanico" id="floatingInput">
-                              </div> -->
-                              {% include 'common/combobox_mecanicos.html' %}
-                              <div class="mb-4">
-                                <label for="floatingInput" id="l1" class="form-label">Fecha<span class="warnings" id="warnings1"></span></label>
-                                <input type="date" class="form-control" name="fecha" id="floatingInput">
-                              </div>
-                              <div class="mb-4">
-                                <label for="floatingInput" id="l1" class="form-label">Observación<span class="warnings" id="warnings1"></span></label>
-                                <input type="text" class="form-control" name="observacion" id="floatingInput">
-                              </div>
-                              <div class="mb-4">
-                                <label for="floatingInput" id="l1" class="form-label">Materiales usados<span class="warnings" id="warnings1"></span></label>
-                                <input type="text" class="form-control" name="materiales" id="floatingInput">
-                              </div>
-                              <div class="mb-4">
-                                <label for="floatingInput" id="l1" class="form-label">Imagen<span class="warnings" id="warnings1"></span></label>
-                                <input type="file" accept="image/png, image/jpg, image/jpeg" class="form-control" name="imagenes" id="floatingInput">
-                              </div>
-                              <div class="d-flex justify-content-center">
-                                <input type="reset" value="Cancelar" class="btn btn-secondary">
-                                <input type="submit" value="Guardar" class="btn btn-primary">
-                              </div>  
-                            </form>
+                <div class="modal-body">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <form action="{% url 'trabajos' %}" method="post" enctype="multipart/form-data">
+                          {% csrf_token %}
+                          <div class="mb-4">
+                            <label for="nombreTrabajo" class="form-label">Título de Trabajo<span class="warnings" id="warnings1"></span></label>
+                            <input type="text" class="form-control" name="nombreTrabajo" id="nombreTrabajo" value="{{trabajo.nombreTrabajo}}">
                           </div>
-                        </div>
+                          <div class="mb-4">
+                            <label for="nombreMecanico" class="form-label">Nombre de Mecánico<span class="warnings" id="warnings1"></span></label>
+                            <input type="text" class="form-control" name="nombreMecanico" id="nombreMecanico" value="{{trabajo.nombreMecanico}}">
+                          </div>
+                          <div class="mb-4">
+                            <label for="fecha" class="form-label">Fecha<span class="warnings" id="warnings1"></span></label>
+                            <input type="date" class="form-control" name="fecha" id="fecha" value="{{trabajo.fecha|date:'Y-m-d' }}">
+                          </div>
+                          <div class="mb-4">
+                            <label for="observacion" class="form-label">Observación<span class="warnings" id="warnings1"></span></label>
+                            <textarea class="form-control" name="observacion" id="observacion" style="overflow-wrap: break-word;">{{trabajo.observacion}}</textarea>
+                          </div>
+                          <div class="mb-4">
+                            <label for="materiales" class="form-label">Materiales usados<span class="warnings" id="warnings1"></span></label>
+                            <input type="text" class="form-control" name="materiales" id="materiales" value="{{trabajo.materiales}}">
+                          </div>
+                          <div class="mb-4">
+                            <label for="imagenes" class="form-label">Imagen<span class="warnings" id="warnings1"></span></label>
+                            <input type="file" accept="image/png, image/jpg, image/jpeg" class="form-control" placeholder="{{trabajo.imagenes}}" name="imagenes" id="imagenes">
+                          </div>
+                          <div class="d-flex justify-content-center">
+                            <input type="reset" value="Cancelar" class="btn btn-secondary me-2">
+                            <input type="submit" value="Guardar" class="btn btn-primary">
+                          </div>
+                        </form>
                       </div>
                     </div>
                   </div>
@@ -121,11 +122,11 @@
               <div class="card-body">
                 <h5 class="card-title">{{trabajo.nombreTrabajo}}</h5>
                 <p class="card-text">{{trabajo.observacion}}</p>
-                <p class="card-text" style="font-size: 11px;">Trabajo realizado por: {{trabajo.nombreMecanico}}</p>
-                <a href="trabajo1" class="btn btn-primary">Ver Más</a>
+                <p class="card-text" style="font-size: 11px;">Realizado por: {{trabajo.nombreMecanico}}</p>
+                <button class="btn btn-primary" data-bs-target="#ver-trabajo-{{trabajo.idTrabajo}}" data-bs-toggle="modal">Ver Más</button>
                 {% if es_Mecanico or tiene_AñadirTrabajo %}
                 {% csrf_token %}
-                <button class="btn btn-secondary" data-bs-target="#modificar-trabajo" data-bs-toggle="modal">Modificar</button>
+                <button class="btn btn-secondary" data-bs-target="#modificar-trabajo-{{trabajo.idTrabajo}}" data-bs-toggle="modal">Modificar</button>
                 <form action="{% url 'delete_trabajo' trabajo.idTrabajo %}" method="post" style="display:inline;">
                   {% csrf_token %}
                   <button class="btn btn-danger" type="submit">Eliminar</button>
@@ -133,57 +134,100 @@
                 {% endif %}
               </div>
             </div>
-            <div class="modal fade" id="modificar-trabajo" aria-labelledby="modificar-trabajo">
-              <div class="modal-dialog modal-dialog-centered">
+            <!-- INICIO DE MODAL DE MODIFICAR TRABAJO -->
+            <div class="modal fade" id="modificar-trabajo-{{trabajo.idTrabajo}}" tabindex="-1" aria-labelledby="modificar-trabajo-{{trabajo.idTrabajo}}" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-xl">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title">Modificar Trabajo</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                          <div class="container-fluid">
+                              <div class="row">
+                                  <div class="col-md-4">
+                                      <img src="{{ trabajo.imagenes.url }}" alt="" class="img-fluid">
+                                  </div>
+                                  <div class="col-md-8">
+                                      <form action="{% url 'trabajos' %}" method="post" enctype="multipart/form-data">
+                                          {% csrf_token %}
+                                          <input type="hidden" name="trabajo_id" value="{{ trabajo.idTrabajo }}">
+                                          <div class="mb-4">
+                                              <label for="nombreTrabajo" class="form-label">Título de Trabajo<span class="warnings" id="warnings1"></span></label>
+                                              <input type="text" class="form-control" name="nombreTrabajo" id="nombreTrabajo" value="{{ trabajo.nombreTrabajo }}">
+                                          </div>
+                                          <div class="mb-4">
+                                              <label for="nombreMecanico" class="form-label">Nombre de Mecánico<span class="warnings" id="warnings1"></span></label>
+                                              <input type="text" class="form-control" name="nombreMecanico" id="nombreMecanico" value="{{ trabajo.nombreMecanico }}">
+                                          </div>
+                                          <div class="mb-4">
+                                              <label for="fecha" class="form-label">Fecha<span class="warnings" id="warnings1"></span></label>
+                                              <input type="date" class="form-control" name="fecha" id="fecha" value="{{ trabajo.fecha|date:'Y-m-d' }}">
+                                          </div>
+                                          <div class="mb-4">
+                                              <label for="observacion" class="form-label">Observación<span class="warnings" id="warnings1"></span></label>
+                                              <textarea class="form-control" name="observacion" id="observacion" style="overflow-wrap: break-word;">{{ trabajo.observacion }}</textarea>
+                                          </div>
+                                          <div class="mb-4">
+                                              <label for="materiales" class="form-label">Materiales usados<span class="warnings" id="warnings1"></span></label>
+                                              <input type="text" class="form-control" name="materiales" id="materiales" value="{{ trabajo.materiales }}">
+                                          </div>
+                                          <div class="mb-4">
+                                              <label for="imagenes" class="form-label">Imagen<span class="warnings" id="warnings1"></span></label>
+                                              <input type="file" accept="image/png, image/jpg, image/jpeg" class="form-control" name="imagenes" id="imagenes">
+                                          </div>
+                                          <div class="d-flex justify-content-center">
+                                              <input type="reset" value="Cancelar" class="btn btn-secondary me-2">
+                                              <input type="submit" value="Guardar" class="btn btn-primary">
+                                          </div>
+                                      </form>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- FIN DE MODAL DE VER MÁS -->
+            <!-- FIN DE MODAL DE MODIFICAR -->
+            <!-- INICIO DE MODAL DE VER MÁS -->
+            <div class="modal fade" id="ver-trabajo-{{trabajo.idTrabajo}}" tabindex="-1" aria-labelledby="ver-trabajo-{{trabajo.idTrabajo}}" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5 fw-bold" id="modificar-trabajo">
-                      Añadir Trabajo
-                    </h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                    </button>
+                    <h5 class="modal-title">Trabajo Detalles</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="container justify-content-center">
-                    <div class="row">
-                      <div class="col-lg-6 col-md-12">
-                        <div class="modal-body justify-content-center">
-                          <div class="row">
-                            <div class="col-12 col-md-6 offset-md-2">
-                              <!-- PARA AGREGAR MÁS TRABAJOS -->
-                              <form action="{% url 'trabajos' %}" method="post" enctype="multipart/form-data">
-                                {% csrf_token %}
-                                <div class="mb-4">
-                                  <label for="floatingInput" id="l1" class="form-label">Título de Trabajo<span class="warnings" id="warnings1"></span></label>
-                                  <input type="text" class="form-control" name="nombreTrabajo" id="floatingInput" placeholder="{{trabajo.nombreTrabajo}}">
-                                </div>
-                                <!-- <div class="mb-4">
-                                  <label for="floatingInput" id="l1" class="form-label">Nombre de Mecánico<span class="warnings" id="warnings1"></span></label>
-                                  <input type="text" class="form-control" name="nombreMecanico" id="floatingInput">
-                                </div> -->
-                                {% include 'common/combobox_mecanicos.html' %}
-                                <div class="mb-4">
-                                  <label for="floatingInput" id="l1" class="form-label">Fecha<span class="warnings" id="warnings1"></span></label>
-                                  <input type="date" class="form-control" name="fecha" id="floatingInput" value="{{trabajo.fecha}}">
-                                </div>
-                                <div class="mb-4">
-                                  <label for="floatingInput" id="l1" class="form-label">Observación<span class="warnings" id="warnings1"></span></label>
-                                  <textarea type="text" class="form-control" name="observacion" id="floatingInput" placeholder="{{trabajo.observacion}}" style=" overflow-wrap: break-word;"></textarea>
-                                </div>
-                                <div class="mb-4">
-                                  <label for="floatingInput" id="l1" class="form-label">Materiales usados<span class="warnings" id="warnings1"></span></label>
-                                  <input type="text" class="form-control" name="materiales" id="floatingInput" placeholder="{{trabajo.materiales}}">
-                                </div>
-                                <div class="mb-4">
-                                  <label for="floatingInput" id="l1" class="form-label">Imagen<span class="warnings" id="warnings1"></span></label>
-                                  <input type="file" accept="image/png, image/jpg, image/jpeg" class="form-control" name="imagenes" id="floatingInput">
-                                </div>
-                                <div class="d-flex justify-content-center">
-                                  <input type="reset" value="Cancelar" class="btn btn-secondary">
-                                  <input type="submit" value="Guardar" class="btn btn-primary">
-                                </div>  
-                              </form>
+                  <div class="modal-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <img src="{{ trabajo.imagenes.url }}" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-md-8">
+                          <form action="{% url 'trabajos' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="mb-4">
+                              <label for="nombreTrabajo" class="form-label">Título de Trabajo<span class="warnings" id="warnings1"></span></label>
+                              <input type="text" class="form-control" name="nombreTrabajo" id="nombreTrabajo" disabled value="{{trabajo.nombreTrabajo}}">
                             </div>
-                          </div>
+                            <div class="mb-4">
+                              <label for="floatingInput" id="l1" class="form-label">Nombre de Mecánico<span class="warnings" id="warnings1"></span></label>
+                              <input type="text" class="form-control" name="nombreMecanico" id="floatingInput" disabled value="{{ trabajo.nombreMecanico }}">
+                            </div>
+                            <div class="mb-4">
+                              <label for="fecha" class="form-label">Fecha<span class="warnings" id="warnings1"></span></label>
+                              <input type="date" class="form-control" name="fecha" id="fecha" disabled value="{{trabajo.fecha|date:'Y-m-d' }}">
+                            </div>
+                            <div class="mb-4">
+                                  <label for="floatingInput" id="l1" class="form-label">Observación<span class="warnings" id="warnings1"></span></label>
+                                  <textarea type="text" class="form-control" name="observacion" id="floatingInput" disabled placeholder="{{trabajo.observacion}}" style=" overflow-wrap: break-word;"></textarea>
+                                </div>
+                            <div class="mb-4">
+                              <label for="materiales" class="form-label">Materiales usados<span class="warnings" id="warnings1"></span></label>
+                              <input type="text" class="form-control" name="materiales" id="materiales" disabled value="{{trabajo.materiales}}">
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>
@@ -191,8 +235,7 @@
                 </div>
               </div>
             </div>
-            <!-- FIN DE MODAL DE MODIFICAR -->
-
+          <!-- FIN DE MODAL DE VER MÁS -->
           </div>
           {% endfor %}
         </div>

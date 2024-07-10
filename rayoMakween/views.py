@@ -50,7 +50,6 @@ def trabajos(request):
         'tiene_AñadirTrabajo': canAñadirTrabajo,
         'form': TrabajoForm(),
         'forms_dict': forms_dict,
-        # 'mecanicos': Mecanico.objects.all(),
     }
 
     return render(request, 'rayoMakween/trabajos.html', context)
