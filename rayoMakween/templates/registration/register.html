@@ -25,11 +25,19 @@
         <div class="col p-5" style="margin-left: 3%; margin-right: 3%; width: 50vh;">
             <h4 style="color: #fada26;">Formulario de registro</h3>
             <!--Aquí comienzan los formularios con sus respectivas validaciones-->
-            {{ form | crispy }}
-              <div>
-                  <input class="btn" type="submit" value="Enviar" onclick="validaRegistro()" style="background-color: #fada26; width: 100%; padding: 9px; margin-top: 25px;">
+            <form id="register-form" action="" method="post">
+              {% csrf_token %}
+              <div class="card mx-auto" style="width: 30rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Complete todos los campos</h5>
+                  {{ form | crispy }}
+                  <a href="{% url 'inicio' %}" class="card-link">Inicio</a>
+                  <a href="{% url 'login' %}" class="card-link">Iniciar sesion</a>
+                  <button class="btn btn-sm btn-primary float-end" type="submit">Registrarse</button>
+                  <p id="warningContacto" style="margin-top: 30px; text-align: center; color: yellow;"></p>
+                </div>
               </div>
-              <p id="warningContacto" style="margin-top: 30px; text-align: center; color: yellow;"></p>
+          </form>
         </div>
     </div>
   </div>

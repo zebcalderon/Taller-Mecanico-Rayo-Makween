@@ -112,17 +112,16 @@ def exit(request):
 
 def register(request):
     data = {
-        'form' : CustomUserCreationForm()
+        'form': CustomUserCreationForm()
     }
 
     if request.method == 'POST':
-        user_crearion_form = UserCreationForm(data=request.POST)
+        user_creation_form = CustomUserCreationForm(data=request.POST)
 
-        if user_crearion_form.is_valid():
-            user_crearion_form.save()
+        if user_creation_form.is_valid():
+            user_creation_form.save()
+            return redirect('login')
+        else:
+            data['form'] = user_creation_form
 
-            user = authenticate(username=user_crearion_form.cleaned_data['username'], password=user_crearion_form.cleaned_data['password1'])
-            login(request, user)
-
-            return redirect('inicio')
     return render(request, 'registration/register.html', data)
