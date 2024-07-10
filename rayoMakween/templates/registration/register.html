@@ -22,12 +22,12 @@
 
   <div class="container">
     <div class="row bg-danger rounded" style="margin-top: 17vh; box-shadow: 7px 13px 37px #2b2a2a;">
-        <div class="col p-5" style="margin-left: 3%; margin-right: 3%; width: 50vh;">
+        <div class="col p-5" style="margin-left: 3%; margin-right: 3%; width: 75vh;">
             <h4 style="color: #fada26;">Formulario de registro</h3>
             <!--Aquí comienzan los formularios con sus respectivas validaciones-->
-            <form id="register-form" action="" method="post">
+            <form id="register-form" action="" method="post" >
               {% csrf_token %}
-              <div class="card mx-auto" style="width: 30rem;">
+              <div class="card" style="width: 33rem;" >
                 <div class="card-body">
                   <h5 class="card-title">Complete todos los campos</h5>
                   {{ form | crispy }}
